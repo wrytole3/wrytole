@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://wrytole3.github.io/wrytole/sitemap.xml
