@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Support our technology platform through a secure Airtel donation. Businesses donating $30 or more can request free advertising.">
+  <title>Donate | Technology Platform</title>
+  <style>
+    :root{
+      --bg:#07111f; --panel:#0d1b2d; --panel2:#10243b; --text:#eef6ff;
+      --muted:#a9bad0; --accent:#ff3b30; --accent2:#ff7a59; --line:rgba(255,255,255,.1);
+      --success:#42d392; --shadow:0 20px 60px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:
+      radial-gradient(circle at 15% 10%,rgba(255,59,48,.16),transparent 28%),
+      radial-gradient(circle at 85% 20%,rgba(0,170,255,.12),transparent 25%),var(--bg);color:var(--text)}
+    .wrap{width:min(1100px,92%);margin:auto}
+    header{padding:22px 0;position:relative}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-size:1.2rem;font-weight:900;letter-spacing:.3px}
+    .brand span{color:var(--accent)}
+    .back{color:var(--text);text-decoration:none;border:1px solid var(--line);padding:10px 15px;border-radius:999px;background:rgba(255,255,255,.04)}
+    .hero{text-align:center;padding:62px 0 34px;animation:rise .7s ease both}
+    .pill{display:inline-flex;padding:8px 13px;border:1px solid rgba(255,122,89,.3);border-radius:999px;background:rgba(255,59,48,.08);color:#ffad9d;font-weight:700;font-size:.85rem}
+    h1{font-size:clamp(2.2rem,7vw,4.7rem);line-height:.98;margin:18px 0 14px;letter-spacing:-2px}
+    .hero p{max-width:700px;margin:auto;color:var(--muted);font-size:1.05rem;line-height:1.7}
+    .amounts{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;margin:35px 0 24px}
+    .amount{border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+      color:var(--text);border-radius:18px;padding:20px 10px;font-size:1.05rem;font-weight:900;cursor:pointer;transition:.25s;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+    .amount:hover,.amount.active{transform:translateY(-5px);border-color:rgba(255,122,89,.75);background:linear-gradient(145deg,rgba(255,59,48,.22),rgba(255,255,255,.04))}
+    .amount small{display:block;color:var(--muted);font-size:.7rem;margin-top:5px;font-weight:600}
+    .card{background:linear-gradient(145deg,rgba(16,36,59,.94),rgba(9,23,39,.94));border:1px solid var(--line);border-radius:28px;padding:clamp(20px,4vw,38px);box-shadow:var(--shadow);margin:25px 0 55px}
+    .payment{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px;border-radius:18px;background:rgba(255,59,48,.09);border:1px solid rgba(255,59,48,.2);margin-bottom:28px}
+    .merchant strong{font-size:1.5rem;letter-spacing:1px}.merchant span{display:block;color:var(--muted);font-size:.84rem;margin-top:3px}
+    .copy{border:0;background:var(--accent);color:white;padding:11px 15px;border-radius:12px;font-weight:800;cursor:pointer}
+    form{display:grid;gap:18px}
+    .section-title{font-size:1.05rem;font-weight:900;margin:5px 0 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    label{display:grid;gap:8px;color:#dbe8f5;font-weight:700;font-size:.9rem}
+    input,textarea,select{width:100%;border:1px solid var(--line);background:#071626;color:var(--text);border-radius:13px;padding:13px 14px;outline:none;font:inherit;transition:.2s}
+    input:focus,textarea:focus,select:focus{border-color:#ff806d;box-shadow:0 0 0 3px rgba(255,59,48,.1)}
+    textarea{min-height:105px;resize:vertical}
+    .business{display:none;border-top:1px solid var(--line);padding-top:22px;animation:fade .35s ease}
+    .business.show{display:grid;gap:18px}
+    .notice{color:var(--muted);font-size:.85rem;line-height:1.6}
+    .submit{border:0;border-radius:15px;padding:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;font-size:1rem;font-weight:900;cursor:pointer;box-shadow:0 12px 30px rgba(255,59,48,.22);transition:.2s}
+    .submit:hover{transform:translateY(-2px)}
+    .submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .status{display:none;padding:15px;border-radius:14px;line-height:1.5}
+    .status.success{display:block;background:rgba(66,211,146,.1);border:1px solid rgba(66,211,146,.3);color:#b9f3d8}
+    .status.error{display:block;background:rgba(255,59,48,.1);border:1px solid rgba(255,59,48,.3);color:#ffc1b9}
+    footer{text-align:center;color:var(--muted);font-size:.82rem;padding:0 0 35px}
+    @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @media(max-width:760px){.amounts{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.payment{align-items:flex-start;flex-direction:column}.copy{width:100%}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">Wry<span>telo</span></div>
+      <a class="back" href="index.html">← Back to site</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="pill">SUPPORT • CONNECT • GROW</span>
+    <h1>Power the future of technology.</h1>
+    <p>Your contribution helps us grow useful technology content and opportunities. Choose an amount below, make your Airtel payment, then submit your transaction details for verification.</p>
+  </section>
+
+  <section>
+    <div class="amounts" aria-label="Donation amounts">
+      <button class="amount" data-amount="18000">Shx 18000<small>Supporter</small></button>
+      <button class="amount" data-amount="55000">shx 55000<small>Supporter</small></button>
+      <button class="amount" data-amount="74000">shx 74000<small>Supporter</small></button>
+      <button class="amount" data-amount="94000">shx 94000<small>Supporter</small></button>
+      <button class="amount" data-amount="120000">shx 120000+<small>Business benefit</small></button>
+    </div>
+  </section>
+
+  <section class="card" id="donation-card">
+    <div class="payment">
+      <div class="merchant">
+        <strong>7169626</strong>
+        <span>Airtel Merchant Code</span>
+      </div>
+      <button class="copy" type="button" id="copyBtn">Copy code</button>
+    </div>
+
+    <form id="donationForm" action="https://formspree.io/f/mjybdrle" method="POST">
+      <input type="hidden" name="donation_amount" id="donationAmount">
+      <input type="hidden" name="_subject" id="emailSubject" value="New donation submission">
+
+      <div class="section-title">Your donation details</div>
+      <div class="grid">
+        <label>Full name
+          <input name="full_name" autocomplete="name" required>
+        </label>
+        <label>Email address
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>Phone number
+          <input type="tel" name="phone" autocomplete="tel" required>
+        </label>
+        <label>Selected donation
+          <input id="amountDisplay" value="Select an amount above" readonly required>
+        </label>
+      </div>
+
+      <label>Airtel transaction/reference number
+        <input name="transaction_reference" required placeholder="Enter your payment reference">
+      </label>
+
+      <label>Message (optional)
+        <textarea name="message" placeholder="Anything you would like us to know?"></textarea>
+      </label>
+
+      <div class="business" id="businessSection">
+        <div>
+          <div class="section-title">🎁 Free business advertising — shx 120000+</div>
+          <p class="notice">If you donate shx 120000 or more and have a business, provide your business information below. Your payment must be verified before the free advertising is approved or published.</p>
+        </div>
+
+        <div class="grid">
+          <label>Business name
+            <input name="business_name">
+          </label>
+          <label>Business category
+            <input name="business_category" placeholder="e.g. Electronics">
+          </label>
+          <label>Business phone / WhatsApp
+            <input name="business_phone">
+          </label>
+          <label>Business email
+            <input type="email" name="business_email">
+          </label>
+          <label>Business location
+            <input name="business_location" placeholder="Town / City">
+          </label>
+          <label>Website
+            <input type="url" name="business_website" placeholder="https://">
+          </label>
+        </div>
+
+        <label>Business description
+          <textarea name="business_description" placeholder="Tell visitors what your business offers"></textarea>
+        </label>
+
+        <label>Products or services
+          <textarea name="products_services" placeholder="List your main products or services"></textarea>
+        </label>
+
+        <div class="grid">
+          <label>Facebook / Instagram
+            <input name="social_links">
+          </label>
+          <label>Preferred advertising text
+            <input name="advertising_text" placeholder="Short text you want displayed">
+          </label>
+        </div>
+
+        <label>Special offer or promotion
+          <textarea name="special_offer" placeholder="Optional"></textarea>
+        </label>
+
+        <p class="notice">Business logos/images are not uploaded by this form. If you need to provide an image, include a publicly accessible image link in your message or send it separately after your payment is verified.</p>
+      </div>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <button class="submit" id="submitBtn" type="submit">Select a donation amount first</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  Donation information is submitted securely through Formspree. Payment verification is performed manually.
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.amount');
+  const amountInput = document.getElementById('donationAmount');
+  const amountDisplay = document.getElementById('amountDisplay');
+  const businessSection = document.getElementById('businessSection');
+  const submitBtn = document.getElementById('submitBtn');
+  const form = document.getElementById('donationForm');
+  const statusBox = document.getElementById('status');
+  const subject = document.getElementById('emailSubject');
+
+  function chooseAmount(value) {
+    buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.amount === value));
+    const label = value === '120000' ? 'shx 120000 or more' : 'shx' + value;
+    amountInput.value = label;
+    amountDisplay.value = label;
+    const business = Number(value) >= 120000;
+    businessSection.classList.toggle('show', business);
+    submitBtn.textContent = business ? 'Submit donation & business details' : 'Submit donation details';
+    subject.value = business ? 'New $30+ donation and business advertising submission' : 'New donation submission - ' + label;
+    document.getElementById('donation-card').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  buttons.forEach(btn => btn.addEventListener('click', () => chooseAmount(btn.dataset.amount)));
+
+  document.getElementById('copyBtn').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('7169626');
+      document.getElementById('copyBtn').textContent = 'Copied ✓';
+      setTimeout(() => document.getElementById('copyBtn').textContent = 'Copy code', 1800);
+    } catch {
+      document.getElementById('copyBtn').textContent = '7169626';
+    }
+  });
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!amountInput.value) {
+      statusBox.className = 'status error';
+      statusBox.textContent = 'Please select a donation amount first.';
+      return;
+    }
+
+    const business = amountInput.value === 'shx 120000 or more';
+    if (business) {
+      const requiredBusiness = ['business_name','business_category','business_phone','business_location','business_description'];
+      for (const name of requiredBusiness) {
+        const field = form.elements[name];
+        if (!field.value.trim()) {
+          field.focus();
+          statusBox.className = 'status error';
+          statusBox.textContent = 'Please complete the required business information before submitting.';
+          return;
+        }
+      }
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+    statusBox.className = 'status';
+    statusBox.textContent = '';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!response.ok) throw new Error('Submission failed');
+
+      form.reset();
+      buttons.forEach(btn => btn.classList.remove('active'));
+      amountInput.value = '';
+      amountDisplay.value = 'Select an amount above';
+      businessSection.classList.remove('show');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Select a donation amount first';
+
+      statusBox.className = 'status success';
+      statusBox.textContent = 'Thank you! Your submission has been received. We will verify the Airtel transaction before confirming the donation and, where applicable, the free business advertising.';
+    } catch (error) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit donation details';
+      statusBox.className = 'status error';
+      statusBox.textContent = 'We could not submit the form right now. Please check your internet connection and try again.';
+    }
+  });
+</script>
+</body>
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Wry<span>tole</span></a>
+        <p>Discover. Learn. Connect.</p>
+        <p class="footer-description">
+          A modern technology platform bringing useful tech information, guides,
+          trending devices, deals, and business opportunities together.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="guides.html">Guides</a>
+        <a href="deals.html">Deals</a>
+        <a href="technology.html">Technology</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Business</h3>
+        <a href="advertising.html">Advertise With Us</a>
+        <a href="advertising.html">Advertising Packages</a>
+        <a href="donate.html">Donate &amp; Support</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="cookies.html">Cookie Policy</a>
+      </div>
+
+      <div class="footer-column footer-connect">
+        <h3>Connect</h3>
+        <a href="#" aria-label="WhatsApp">WhatsApp</a>
+        <a href="#" aria-label="Telegram">Telegram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+        <a href="mailto:your-email@example.com">Email Us</a>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <strong>Disclaimer:</strong>
+      Product information, prices, availability, and third-party offers may
+      change. Please verify details with the relevant provider before making
+      a purchase or payment.
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Wrytole. All rights reserved.</p>
+      <p>Technology • Business • Digital Opportunities</p>
+      <button type="button" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        Back to top ↑
+      </button>
+    </div>
+  </div>
+</footer>
+
+<style>
+.site-footer{
+  margin-top:70px;
+  background:#040b14;
+  border-top:1px solid rgba(255,255,255,.10);
+  color:#eef6ff;
+}
+.footer-wrap{
+  width:min(1150px,92%);
+  margin:auto;
+  padding:52px 0 22px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr repeat(4,1fr);
+  gap:34px;
+}
+.footer-logo{
+  color:#fff;
+  text-decoration:none;
+  font-size:1.35rem;
+  font-weight:950;
+}
+.footer-logo span{color:#ff3b30}
+.footer-brand p{
+  color:#aabbd0;
+  line-height:1.6;
+  margin:9px 0;
+}
+.footer-description{
+  max-width:340px;
+  font-size:.88rem;
+}
+.footer-column h3{
+  margin:0 0 13px;
+  font-size:.95rem;
+}
+.footer-column a{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  color:#9fb0c5;
+  text-decoration:none;
+  font-size:.86rem;
+  margin:8px 0;
+  transition:.2s;
+}
+.footer-column a:hover{
+  color:#fff;
+  transform:translateX(3px);
+}
+.footer-disclaimer{
+  margin-top:38px;
+  padding:16px 18px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  background:rgba(255,255,255,.025);
+  color:#8fa1b7;
+  font-size:.78rem;
+  line-height:1.65;
+}
+.footer-disclaimer strong{color:#dce7f3}
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.08);
+  margin-top:26px;
+  padding-top:20px;
+  color:#71839a;
+  font-size:.76rem;
+}
+.footer-bottom p{margin:0}
+.back-to-top{
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  color:#dce7f3;
+  padding:9px 13px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s;
+}
+.back-to-top:hover{
+  background:rgba(255,255,255,.09);
+  transform:translateY(-2px);
+}
+@media(max-width:900px){
+  .footer-grid{grid-template-columns:2fr 1fr 1fr}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px 20px}
+  .footer-brand{grid-column:1/-1}
+  .footer-bottom{align-items:flex-start;flex-direction:column}
+}
+</style>
+</html>

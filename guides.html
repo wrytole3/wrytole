@@ -1,0 +1,5918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+name="description"
+content="Wrytole user guide. Learn how to use Deals, place orders, advertise your business and get the most from our platform."
+>
+
+<meta
+name="keywords"
+content="Wrytole guide, technology deals, Uganda technology, advertising, online orders, business advertising"
+>
+
+<meta
+name="author"
+content="Wrytole"
+>
+
+<title>
+Wrytole — User Guide & Help Center
+</title>
+
+
+<style>
+
+/* =========================================
+   WRYTOLE GUIDE
+   PART 1 — FOUNDATION
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+:root{
+
+    --bg:#07111f;
+
+    --bg2:#0b1828;
+
+    --card:#102238;
+
+    --card2:#132b44;
+
+    --text:#f5f8fc;
+
+    --muted:#a9bbcf;
+
+    --accent:#ff4d3d;
+
+    --accent2:#ff806f;
+
+    --success:#38d996;
+
+    --border:rgba(255,255,255,.09);
+
+    --shadow:
+    0 20px 60px rgba(0,0,0,.28);
+
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+    background:
+
+    radial-gradient(
+        circle at 15% 0%,
+        rgba(255,77,61,.13),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 85% 20%,
+        rgba(52,152,219,.10),
+        transparent 30%
+    ),
+
+    var(--bg);
+
+    color:var(--text);
+
+    line-height:1.7;
+
+    min-height:100vh;
+
+}
+
+
+a{
+    color:inherit;
+}
+
+
+button,
+input{
+    font:inherit;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    width:100%;
+
+    background:
+    rgba(7,17,31,.88);
+
+    backdrop-filter:
+    blur(16px);
+
+    -webkit-backdrop-filter:
+    blur(16px);
+
+    border-bottom:
+    1px solid var(--border);
+
+}
+
+
+.nav-container{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+    min-height:72px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+
+.logo{
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:1.25rem;
+
+    font-weight:900;
+
+}
+
+
+.logo-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+
+    box-shadow:
+    0 8px 25px
+    rgba(255,77,61,.25);
+
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:var(--muted);
+
+    padding:8px 12px;
+
+    border-radius:9px;
+
+    font-size:.9rem;
+
+    transition:.2s ease;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.07);
+
+}
+
+
+@media(max-width:760px){
+
+    .nav-container{
+
+        padding:10px 0;
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+    .nav-links{
+
+        width:100%;
+
+        overflow-x:auto;
+
+        flex-wrap:nowrap;
+
+        padding-bottom:5px;
+
+    }
+
+    .nav-links a{
+
+        white-space:nowrap;
+
+    }
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+main{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin-top:35px;
+
+    padding:
+    clamp(40px,7vw,80px)
+    clamp(22px,6vw,70px);
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(255,77,61,.17),
+        rgba(19,43,68,.90)
+    );
+
+    border:
+    1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    right:-90px;
+
+    top:-100px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,77,61,.12);
+
+    filter:blur(5px);
+
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:800px;
+
+}
+
+
+.eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:7px 12px;
+
+    margin-bottom:17px;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,255,255,.07);
+
+    border:
+    1px solid var(--border);
+
+    color:#dbe8f6;
+
+    font-size:.82rem;
+
+    font-weight:800;
+
+}
+
+
+.eyebrow span{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--success);
+
+    box-shadow:
+    0 0 12px
+    rgba(56,217,150,.8);
+
+}
+
+
+.hero h1{
+
+    font-size:
+    clamp(2.1rem,6vw,4.2rem);
+
+    line-height:1.08;
+
+    letter-spacing:-2px;
+
+    margin-bottom:20px;
+
+}
+
+
+.hero h1 strong{
+
+    color:var(--accent2);
+
+}
+
+
+.hero p{
+
+    max-width:730px;
+
+    color:var(--muted);
+
+    font-size:
+    clamp(.98rem,2vw,1.12rem);
+
+    margin-bottom:28px;
+
+}
+
+
+.hero-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    min-height:48px;
+
+    padding:12px 19px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:850;
+
+    border:1px solid transparent;
+
+    transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+
+}
+
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+.btn-primary{
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+
+    box-shadow:
+    0 10px 25px
+    rgba(255,77,61,.2);
+
+}
+
+
+.btn-secondary{
+
+    background:
+    rgba(255,255,255,.06);
+
+    border-color:var(--border);
+
+    color:white;
+
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.guide-search{
+
+    margin-top:25px;
+
+    padding:16px;
+
+    border-radius:17px;
+
+    background:
+    rgba(0,0,0,.16);
+
+    border:
+    1px solid var(--border);
+
+}
+
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.search-box span{
+
+    font-size:1.3rem;
+
+}
+
+
+.search-box input{
+
+    width:100%;
+
+    border:0;
+
+    outline:0;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:1rem;
+
+}
+
+
+.search-box input::placeholder{
+
+    color:#7f93aa;
+
+}
+
+
+/* =========================================
+   QUICK LINKS
+========================================= */
+
+.section{
+
+    padding:70px 0 0;
+
+}
+
+
+.section-heading{
+
+    margin-bottom:28px;
+
+}
+
+
+.section-heading .label{
+
+    color:var(--accent2);
+
+    font-size:.82rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    font-weight:900;
+
+}
+
+
+.section-heading h2{
+
+    margin-top:6px;
+
+    font-size:
+    clamp(1.7rem,4vw,2.6rem);
+
+    line-height:1.2;
+
+}
+
+
+.section-heading p{
+
+    color:var(--muted);
+
+    max-width:700px;
+
+    margin-top:10px;
+
+}
+
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:17px;
+
+}
+
+
+.quick-card{
+
+    position:relative;
+
+    padding:24px;
+
+    min-height:190px;
+
+    border-radius:19px;
+
+    background:
+    linear-gradient(
+        145deg,
+        var(--card),
+        rgba(16,34,56,.72)
+    );
+
+    border:
+    1px solid var(--border);
+
+    transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+
+}
+
+
+.quick-card:hover{
+
+    transform:
+    translateY(-6px);
+
+    border-color:
+    rgba(255,128,111,.3);
+
+    box-shadow:
+    0 18px 40px
+    rgba(0,0,0,.2);
+
+}
+
+
+.quick-icon{
+
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:
+    rgba(255,255,255,.06);
+
+    font-size:1.45rem;
+
+    margin-bottom:17px;
+
+}
+
+
+.quick-card h3{
+
+    font-size:1.05rem;
+
+    margin-bottom:7px;
+
+}
+
+
+.quick-card p{
+
+    color:var(--muted);
+
+    font-size:.9rem;
+
+}
+
+
+@media(max-width:950px){
+
+    .quick-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:540px){
+
+    .quick-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/* =========================================
+   GUIDE INTRO
+========================================= */
+
+.intro-box{
+
+    margin-top:35px;
+
+    padding:28px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid var(--border);
+
+}
+
+
+.intro-box h3{
+
+    margin-bottom:10px;
+
+    font-size:1.2rem;
+
+}
+
+
+.intro-box p{
+
+    color:var(--muted);
+
+}
+
+
+.info-list{
+
+    margin-top:17px;
+
+    display:grid;
+
+    gap:10px;
+
+}
+
+
+.info-list div{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    color:#c6d5e4;
+
+}
+
+
+.info-list strong{
+
+    color:white;
+
+}
+
+
+/* =========================================
+   MOBILE SPACING
+========================================= */
+
+@media(max-width:600px){
+
+    .hero{
+
+        margin-top:20px;
+
+        border-radius:22px;
+
+    }
+
+    .hero h1{
+
+        letter-spacing:-1px;
+
+    }
+
+    .section{
+
+        padding-top:50px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header class="navbar">
+
+<div class="nav-container">
+
+<a
+href="index.html"
+class="logo"
+>
+
+<span class="logo-icon">
+⚡
+</span>
+
+<span>
+Wrytole
+</span>
+
+</a>
+
+
+<nav class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="deals.html">
+Deals
+</a>
+
+<a href="advertising.html">
+Advertising
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+<a
+href="guide.html"
+class="active"
+>
+Guide
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================= -->
+
+<main>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="eyebrow">
+
+<span></span>
+
+Official Wrytole User Guide
+
+</div>
+
+
+<h1>
+
+Everything you need to
+use <strong>Wrytole</strong>
+with confidence.
+
+</h1>
+
+
+<p>
+
+Welcome to the Wrytole Guide. This page explains
+how to discover technology deals, search for products,
+build your shopping cart, submit an order, advertise
+your business and make better use of the services
+available on the site.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a
+href="#shopping-guide"
+class="btn btn-primary"
+>
+🛍️ Shopping Guide
+</a>
+
+
+<a
+href="#advertising-guide"
+class="btn btn-secondary"
+>
+📢 Advertising Guide
+</a>
+
+</div>
+
+
+<div class="guide-search">
+
+<div class="search-box">
+
+<span>
+🔎
+</span>
+
+<input
+type="search"
+id="guideSearch"
+placeholder="Search this guide... e.g. order, cart, advertising, business"
+autocomplete="off"
+>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     QUICK GUIDE
+========================================= -->
+
+<section class="section">
+
+<div class="section-heading">
+
+<div class="label">
+Start Here
+</div>
+
+<h2>
+Choose what you want to do
+</h2>
+
+<p>
+You can use Wrytole for discovering technology,
+ordering products and giving businesses a place
+to reach potential customers.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<a
+href="#shopping-guide"
+class="quick-card"
+style="text-decoration:none;"
+>
+
+<div class="quick-icon">
+🛍️
+</div>
+
+<h3>
+Shop Technology
+</h3>
+
+<p>
+Learn how to browse Deals, search for products,
+compare options and select products you are
+interested in ordering.
+</p>
+
+</a>
+
+
+<a
+href="#ordering-guide"
+class="quick-card"
+style="text-decoration:none;"
+>
+
+<div class="quick-icon">
+🛒
+</div>
+
+<h3>
+Place an Order
+</h3>
+
+<p>
+Learn how the cart works, what customer details
+are required and what happens after you submit
+an order.
+</p>
+
+</a>
+
+
+<a
+href="#advertising-guide"
+class="quick-card"
+style="text-decoration:none;"
+>
+
+<div class="quick-icon">
+📢
+</div>
+
+<h3>
+Advertise a Business
+</h3>
+
+<p>
+Learn about Basic, Featured, Premium and Custom
+advertising and how advertising can help your
+business gain visibility.
+</p>
+
+</a>
+
+
+<a
+href="#help-section"
+class="quick-card"
+style="text-decoration:none;"
+>
+
+<div class="quick-icon">
+💡
+</div>
+
+<h3>
+Get Help
+</h3>
+
+<p>
+Find answers to common questions and learn what
+to do when you need assistance with a product,
+order or advertisement.
+</p>
+
+</a>
+
+
+</div>
+
+
+<div class="intro-box">
+
+<h3>
+Why this guide matters
+</h3>
+
+<p>
+
+Wrytole is designed to make technology discovery
+and business promotion easier. You do not need to
+understand complicated technical systems to use
+the site. The guide explains the important steps
+so that you know what to expect before taking an
+action.
+
+</p>
+
+
+<div class="info-list">
+
+<div>
+<span>✓</span>
+<span>
+<strong>Customers:</strong>
+find products and submit clear order requests.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+<strong>Businesses:</strong>
+promote products or services through advertising.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+<strong>Visitors:</strong>
+explore technology information without needing
+to place an order.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+<strong>Everyone:</strong>
+understand how the different sections of the
+website work before using them.
+</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- =========================================
+     PART 2 — DEALS & SHOPPING GUIDE
+========================================= -->
+
+<section
+    class="section"
+    id="shopping-guide"
+>
+
+<div class="section-heading">
+
+    <div class="label">
+        Deals & Shopping
+    </div>
+
+    <h2>
+        How to discover technology deals
+    </h2>
+
+    <p>
+        The Deals section is designed to help you discover
+        technology products and devices that may be useful
+        for school, business, entertainment, communication,
+        productivity and everyday digital life.
+    </p>
+
+</div>
+
+
+<!-- =========================================
+     SHOPPING INTRODUCTION
+========================================= -->
+
+<div class="intro-box">
+
+    <h3>
+        🛍️ What can you do in Deals?
+    </h3>
+
+    <p>
+        The Deals page allows you to explore available
+        technology products in one convenient place.
+        Depending on what is currently listed, you may
+        find smartphones, laptops, tablets, accessories,
+        networking equipment, storage devices, computer
+        equipment and other technology-related products.
+    </p>
+
+    <p style="margin-top:14px;">
+        Products may change over time. New products can be
+        added, older listings can be removed and prices or
+        availability can change. Always review the current
+        product information before submitting an order.
+    </p>
+
+</div>
+
+
+<!-- =========================================
+     STEP-BY-STEP SHOPPING
+========================================= -->
+
+<div
+    class="quick-grid"
+    style="margin-top:25px;"
+>
+
+
+<div class="quick-card">
+
+    <div class="quick-icon">
+        1️⃣
+    </div>
+
+    <h3>
+        Open Deals
+    </h3>
+
+    <p>
+        Select the Deals section from the website
+        navigation. You will be taken to the technology
+        product listings.
+    </p>
+
+</div>
+
+
+<div class="quick-card">
+
+    <div class="quick-icon">
+        2️⃣
+    </div>
+
+    <h3>
+        Search
+    </h3>
+
+    <p>
+        Use the search bar to quickly find a product.
+        You can search using a product name, category,
+        brand or other relevant words.
+    </p>
+
+</div>
+
+
+<div class="quick-card">
+
+    <div class="quick-icon">
+        3️⃣
+    </div>
+
+    <h3>
+        Review
+    </h3>
+
+    <p>
+        Read the product information carefully. Check
+        the displayed price, description and other
+        available information.
+    </p>
+
+</div>
+
+
+<div class="quick-card">
+
+    <div class="quick-icon">
+        4️⃣
+    </div>
+
+    <h3>
+        Add to Cart
+    </h3>
+
+    <p>
+        If the product is suitable for you, use its
+        Add to Cart button to include it in your order.
+    </p>
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     SEARCH GUIDE
+========================================= -->
+
+<div
+    class="intro-box"
+    style="margin-top:35px;"
+>
+
+<h3>
+    🔎 Using the Deals search bar
+</h3>
+
+<p>
+
+The search bar is useful when there are many products
+on the Deals page. Instead of scrolling through every
+product, enter a word or phrase related to what you
+want.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Product name:</strong>
+search for a specific device or product name.
+</span>
+
+</div>
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Brand:</strong>
+search for a manufacturer or brand shown in the
+available listings.
+</span>
+
+</div>
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Category:</strong>
+try words such as laptop, phone, tablet,
+accessory or storage.
+</span>
+
+</div>
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Keywords:</strong>
+use important words from the product title or
+description.
+</span>
+
+</div>
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Clear search:</strong>
+remove the search text when you want to see the
+available listings again.
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     PRODUCT CARD GUIDE
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Product Cards
+</div>
+
+<h2>
+Understanding a product listing
+</h2>
+
+<p>
+Each product card is intended to give you important
+information before you decide whether to place an
+order.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📱
+</div>
+
+<h3>
+Product Name
+</h3>
+
+<p>
+The product name helps you identify exactly what
+you are viewing. Read it carefully, especially
+when similar products appear together.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+💰
+</div>
+
+<h3>
+Price
+</h3>
+
+<p>
+The listed price is shown in Uganda Shillings (UGX)
+on the Deals page. Prices can change, so review the
+current listing before ordering.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+ℹ️
+</div>
+
+<h3>
+Description
+</h3>
+
+<p>
+The description provides additional information
+about the product and can help you understand what
+you are ordering.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🛒
+</div>
+
+<h3>
+Add to Cart
+</h3>
+
+<p>
+Use the Add to Cart button when you want to include
+a product in your order before proceeding to
+checkout.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     PRICE INFORMATION
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+💰 Understanding prices
+</h3>
+
+<p>
+
+Technology prices can change because of supplier
+pricing, availability, exchange rates, promotions,
+stock levels and other market conditions. The price
+displayed on the website should therefore be treated
+as the current listed price at the time you are
+viewing the product.
+
+</p>
+
+<p style="margin-top:14px;">
+
+Before an order is finalized, TechHub may need to
+confirm product availability and the final applicable
+price. This is particularly important when a product
+has limited availability or when its price has
+recently changed.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Currency:</strong>
+Product prices are displayed in UGX.
+</span>
+
+</div>
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Check before ordering:</strong>
+Review the current price before submitting your
+order.
+</span>
+
+</div>
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Final confirmation:</strong>
+The final price and availability can be confirmed
+before the order is completed.
+</span>
+
+</div>
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Ask questions:</strong>
+Contact TechHub if you need clarification about
+a product.
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     PRODUCT SELECTION TIPS
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Smart Shopping
+</div>
+
+<h2>
+Before adding a product to your cart
+</h2>
+
+<p>
+Taking a moment to review a product can help reduce
+mistakes when submitting an order.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+👀
+</div>
+
+<h3>
+Read Carefully
+</h3>
+
+<p>
+Read the product title and description instead of
+relying only on the product image.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+💵
+</div>
+
+<h3>
+Check the Price
+</h3>
+
+<p>
+Make sure the displayed UGX price is within the
+amount you expect to spend.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+❓
+</div>
+
+<h3>
+Ask if Unsure
+</h3>
+
+<p>
+If you are unsure about specifications, availability
+or another important detail, contact TechHub before
+placing the order.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+✅
+</div>
+
+<h3>
+Choose Carefully
+</h3>
+
+<p>
+Make sure you have selected the product you actually
+want before adding it to your cart.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     CATEGORIES
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+🗂️ Common technology categories
+</h3>
+
+<p>
+
+The exact categories available on the Deals page may
+change as new products are introduced. Technology
+listings can generally include areas such as:
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>📱</span>
+<span>
+<strong>Smartphones:</strong>
+mobile devices and related products.
+</span>
+</div>
+
+
+<div>
+<span>💻</span>
+<span>
+<strong>Laptops & Computers:</strong>
+devices for education, business, development
+and everyday computing.
+</span>
+</div>
+
+
+<div>
+<span>📲</span>
+<span>
+<strong>Tablets:</strong>
+portable touchscreen computing devices.
+</span>
+</div>
+
+
+<div>
+<span>🎧</span>
+<span>
+<strong>Accessories:</strong>
+items such as headphones, chargers, cables
+and other useful technology accessories.
+</span>
+</div>
+
+
+<div>
+<span>💾</span>
+<span>
+<strong>Storage:</strong>
+storage-related devices and products.
+</span>
+</div>
+
+
+<div>
+<span>📡</span>
+<span>
+<strong>Networking:</strong>
+devices and equipment used for connectivity
+and networking.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     AVAILABILITY
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+📦 Understanding product availability
+</h3>
+
+<p>
+
+A product appearing on the Deals page does not
+necessarily mean that unlimited stock is available.
+Some products may have limited quantities or may
+require availability confirmation before an order
+can be finalized.
+
+</p>
+
+<p style="margin-top:14px;">
+
+For this reason, submitting an order should be
+understood as an order request. TechHub can contact
+you after submission to confirm whether the requested
+product is available and to discuss the applicable
+final price and other arrangements.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     SHOPPING CHECKLIST
+========================================= -->
+
+<div
+    class="intro-box"
+    style="margin-top:25px;"
+>
+
+<h3>
+📝 Quick shopping checklist
+</h3>
+
+<p>
+Before submitting your order, make sure you have:
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+Selected the correct product.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Checked the displayed UGX price.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Read the available product information.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Selected the correct quantity.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Reviewed everything in your cart.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Provided accurate contact information during
+checkout.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     NAVIGATION TO NEXT GUIDE
+========================================= -->
+
+<div
+    class="hero-actions"
+    style="
+        margin-top:40px;
+        justify-content:center;
+    "
+>
+
+<a
+    href="#ordering-guide"
+    class="btn btn-primary"
+>
+
+Continue to Ordering Guide →
+
+</a>
+
+<a
+    href="#advertising-guide"
+    class="btn btn-secondary"
+>
+
+Learn About Advertising
+
+</a>
+
+</div>
+
+</section>
+<!-- =========================================
+     PART 3 — CART, CHECKOUT & ORDERING GUIDE
+========================================= -->
+
+<section
+    class="section"
+    id="ordering-guide"
+>
+
+<div class="section-heading">
+
+    <div class="label">
+        Cart & Orders
+    </div>
+
+    <h2>
+        How to place an order on TechHub
+    </h2>
+
+    <p>
+        After finding products you are interested in,
+        the cart allows you to review your selections
+        before submitting your order request.
+    </p>
+
+</div>
+
+
+<!-- =========================================
+     ORDERING INTRO
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+    🛒 What is the shopping cart?
+</h3>
+
+<p>
+
+The shopping cart is a temporary list of the products
+you have selected from the Deals page. It allows you
+to see what you intend to order, change quantities,
+remove unwanted products and review the estimated
+order total before continuing to checkout.
+
+</p>
+
+<p style="margin-top:14px;">
+
+Adding a product to the cart does not mean that the
+order has already been submitted. You still need to
+review your cart and complete the order form.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     ORDER PROCESS
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Step by Step
+</div>
+
+<h2>
+Your complete ordering process
+</h2>
+
+<p>
+Follow these steps when you want to submit a product
+order request.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+1️⃣
+</div>
+
+<h3>
+Choose a Product
+</h3>
+
+<p>
+Browse Deals or use the search bar to find the
+technology product you are interested in.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+2️⃣
+</div>
+
+<h3>
+Add to Cart
+</h3>
+
+<p>
+Select Add to Cart. The product will be placed in
+your shopping cart for review.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+3️⃣
+</div>
+
+<h3>
+Review Cart
+</h3>
+
+<p>
+Open your cart and check the products, quantities,
+prices and estimated total.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+4️⃣
+</div>
+
+<h3>
+Checkout
+</h3>
+
+<p>
+Continue to the order form and provide the contact
+and delivery information requested.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+5️⃣
+</div>
+
+<h3>
+Submit Order
+</h3>
+
+<p>
+Review the information you entered and submit the
+order request when everything is correct.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+6️⃣
+</div>
+
+<h3>
+Wait for Confirmation
+</h3>
+
+<p>
+TechHub can contact you to confirm availability,
+final pricing, delivery and payment arrangements.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     CART CONTROLS
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+➕➖ Managing products in your cart
+</h3>
+
+<p>
+
+Your cart should make it easy to correct your order
+before submission. Depending on the controls available
+on the Deals page, you can adjust the quantity of an
+item or remove an item completely.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+
+<span>➕</span>
+
+<span>
+<strong>Increase quantity:</strong>
+use the quantity control when you want more than
+one unit of a product.
+</span>
+
+</div>
+
+
+<div>
+
+<span>➖</span>
+
+<span>
+<strong>Decrease quantity:</strong>
+reduce the quantity when you no longer need as
+many units.
+</span>
+
+</div>
+
+
+<div>
+
+<span>🗑️</span>
+
+<span>
+<strong>Remove:</strong>
+remove an unwanted product from the cart before
+checkout.
+</span>
+
+</div>
+
+
+<div>
+
+<span>🔄</span>
+
+<span>
+<strong>Review:</strong>
+always check the cart again after changing
+quantities.
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     ORDER TOTAL
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+💰 Understanding your order total
+</h3>
+
+<p>
+
+The cart may calculate an estimated total using the
+products and quantities you have selected. This gives
+you an idea of the value of your order before you
+submit it.
+
+</p>
+
+<p style="margin-top:14px;">
+
+The displayed cart total should not automatically be
+interpreted as a final invoice. Product availability,
+price changes, delivery arrangements or other factors
+may need to be confirmed before the final transaction
+is completed.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Product price:</strong>
+the listed price of each selected product.
+</span>
+
+</div>
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Quantity:</strong>
+the number of units selected.
+</span>
+
+</div>
+
+
+<div>
+
+<span>✓</span>
+
+<span>
+<strong>Subtotal:</strong>
+the combined value of selected products.
+</span>
+
+</div>
+
+
+<div>
+
+<span>ℹ️</span>
+
+<span>
+<strong>Final confirmation:</strong>
+TechHub may confirm the final price with you
+before completing the order.
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     CHECKOUT INFORMATION
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Checkout
+</div>
+
+<h2>
+Information customers should provide
+</h2>
+
+<p>
+Accurate information helps TechHub contact you
+about your order and make the appropriate delivery
+or collection arrangements.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+👤
+</div>
+
+<h3>
+Full Name
+</h3>
+
+<p>
+Provide your real name so that the order can be
+associated with the correct customer.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📞
+</div>
+
+<h3>
+Phone Number
+</h3>
+
+<p>
+Enter an active phone number through which TechHub
+can contact you about your order.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📧
+</div>
+
+<h3>
+Email
+</h3>
+
+<p>
+If the order form requests an email address, enter
+an address you can access.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📍
+</div>
+
+<h3>
+Location
+</h3>
+
+<p>
+Provide useful location or delivery information
+when requested so that arrangements can be discussed.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT INFORMATION
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+📞 Why your contact information matters
+</h3>
+
+<p>
+
+An order is much easier to process when the information
+you provide is accurate. TechHub may need to contact
+you to clarify your order, confirm product availability,
+discuss the final price, arrange delivery or explain
+available payment options.
+
+</p>
+
+<p style="margin-top:14px;">
+
+Do not enter someone else's phone number or email
+address without their permission. Make sure the
+information you submit belongs to you or that you
+have authorization to use it.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     REVIEW BEFORE SUBMISSION
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+🔍 Review your order before submitting
+</h3>
+
+<p>
+Before pressing the final Submit Order button,
+take a moment to check the following:
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+The correct products are in your cart.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+The quantities are correct.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+The displayed prices are correct.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Your name is correctly entered.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Your phone number is correct and active.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Your email is correctly entered if required.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Your location or delivery information is accurate.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+You understand that the order may require
+confirmation.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     FORM SUBMISSION
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Order Submission
+</div>
+
+<h2>
+What happens when you submit?
+</h2>
+
+<p>
+The ordering process is designed to send the details
+you provide through the website's configured form
+submission service.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📝
+</div>
+
+<h3>
+1. Details Collected
+</h3>
+
+<p>
+The website collects the information you entered
+together with the products and order information
+associated with your request.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📨
+</div>
+
+<h3>
+2. Form Submitted
+</h3>
+
+<p>
+The completed order form is submitted through the
+form service configured for the website.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🔎
+</div>
+
+<h3>
+3. Order Reviewed
+</h3>
+
+<p>
+The submitted information can be reviewed so that
+the order can be processed and followed up.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📲
+</div>
+
+<h3>
+4. Customer Contacted
+</h3>
+
+<p>
+You may be contacted using the details you provided
+to discuss the order and confirmation.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     IMPORTANT ORDER NOTICE
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+⚠️ Important: submitting is not the same as payment
+</h3>
+
+<p>
+
+Submitting an order through the Deals page should be
+understood as sending an order request. It does not
+automatically mean that payment has been completed.
+
+</p>
+
+<p style="margin-top:14px;">
+
+TechHub can first confirm product availability,
+final price, delivery or collection arrangements and
+the appropriate payment process with the customer.
+
+</p>
+
+<p style="margin-top:14px;">
+
+Never send money to an unknown person claiming to
+represent TechHub without first verifying the
+payment instructions through the official contact
+channels provided on the website.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     AFTER ORDER SUBMISSION
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+After Submission
+</div>
+
+<h2>
+What should you expect next?
+</h2>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+⏳
+</div>
+
+<h3>
+Allow Time for Review
+</h3>
+
+<p>
+Your order may need to be reviewed before someone
+contacts you. Avoid submitting repeated orders for
+the same request unless necessary.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📞
+</div>
+
+<h3>
+Keep Your Phone Available
+</h3>
+
+<p>
+Keep the contact number you provided accessible
+so that you do not miss an important follow-up.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+💬
+</div>
+
+<h3>
+Answer Questions
+</h3>
+
+<p>
+You may be asked to clarify the selected product,
+quantity, location or another part of your request.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+✅
+</div>
+
+<h3>
+Confirm the Details
+</h3>
+
+<p>
+Before completing the transaction, verify that the
+product, price and arrangements are what you expect.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     IF SUBMISSION FAILS
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+🚨 If your order does not submit
+</h3>
+
+<p>
+
+If the website displays an error after you press
+Submit Order, first check your internet connection
+and make sure all required fields have been completed
+correctly.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>1.</span>
+<span>
+Check that your internet connection is working.
+</span>
+</div>
+
+
+<div>
+<span>2.</span>
+<span>
+Check all required fields for missing information.
+</span>
+</div>
+
+
+<div>
+<span>3.</span>
+<span>
+Review your phone number and email address.
+</span>
+</div>
+
+
+<div>
+<span>4.</span>
+<span>
+Try submitting the form again once.
+</span>
+</div>
+
+
+<div>
+<span>5.</span>
+<span>
+If the problem continues, use the Contact page
+for assistance.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     ORDER SAFETY
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+🔐 Protect your personal information
+</h3>
+
+<p>
+
+Only provide information that is reasonably required
+for your order. Never enter passwords, PINs, banking
+passwords, verification codes or other highly
+sensitive security credentials into an ordinary
+product-order form.
+
+</p>
+
+<p style="margin-top:14px;">
+
+If a person claiming to be a representative asks
+for a security code, account password or similar
+credential, do not provide it. Contact TechHub
+through an official channel to verify the request.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     ORDER SUMMARY
+========================================= -->
+
+<div
+    class="intro-box"
+    style="margin-top:30px;"
+>
+
+<h3>
+📋 Simple ordering checklist
+</h3>
+
+<div class="info-list">
+
+
+<div>
+<span>01</span>
+<span>
+Find the product in Deals.
+</span>
+</div>
+
+
+<div>
+<span>02</span>
+<span>
+Read the product information.
+</span>
+</div>
+
+
+<div>
+<span>03</span>
+<span>
+Add the product to your cart.
+</span>
+</div>
+
+
+<div>
+<span>04</span>
+<span>
+Review your cart and quantities.
+</span>
+</div>
+
+
+<div>
+<span>05</span>
+<span>
+Continue to checkout.
+</span>
+</div>
+
+
+<div>
+<span>06</span>
+<span>
+Enter accurate customer information.
+</span>
+</div>
+
+
+<div>
+<span>07</span>
+<span>
+Review everything carefully.
+</span>
+</div>
+
+
+<div>
+<span>08</span>
+<span>
+Submit your order request.
+</span>
+</div>
+
+
+<div>
+<span>09</span>
+<span>
+Wait for confirmation and further instructions.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     CONTINUE TO ADVERTISING
+========================================= -->
+
+<div
+    class="hero-actions"
+    style="
+        margin-top:40px;
+        justify-content:center;
+    "
+>
+
+<a
+    href="#advertising-guide"
+    class="btn btn-primary"
+>
+
+📢 Continue to Advertising Guide →
+
+</a>
+
+
+<a
+    href="#shopping-guide"
+    class="btn btn-secondary"
+>
+
+← Back to Shopping Guide
+
+</a>
+
+</div>
+
+</section>
+<!-- =========================================
+     PART 4 — ADVERTISING GUIDE
+========================================= -->
+
+<section
+    class="section"
+    id="advertising-guide"
+>
+
+<div class="section-heading">
+
+    <div class="label">
+        Business Advertising
+    </div>
+
+    <h2>
+        Promote your business on TechHub
+    </h2>
+
+    <p>
+        The Advertising section is designed for businesses,
+        entrepreneurs, organizations and service providers
+        who want to introduce their products or services to
+        people visiting TechHub.
+    </p>
+
+</div>
+
+
+<!-- =========================================
+     ADVERTISING INTRODUCTION
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+    📢 Why advertise on TechHub?
+</h3>
+
+<p>
+
+Advertising can help a business present its products,
+services, brand or promotional message to a technology-
+focused audience. Instead of relying only on people
+discovering your business elsewhere, an advertisement
+can give your business additional visibility within
+the TechHub website.
+
+</p>
+
+<p style="margin-top:14px;">
+
+The advertising options are designed for different
+levels of visibility and campaign duration. You can
+choose an option according to your budget, campaign
+goals and the level of exposure you want.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     HOW ADVERTISING WORKS
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+How It Works
+</div>
+
+<h2>
+The advertising process
+</h2>
+
+<p>
+Getting started is designed to be straightforward.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+1️⃣
+</div>
+
+<h3>
+Choose a Package
+</h3>
+
+<p>
+Review the available advertising packages and select
+the option that best matches your campaign objectives.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+2️⃣
+</div>
+
+<h3>
+Open the Package
+</h3>
+
+<p>
+Select the advertising option you are interested in
+to view its details and available information.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+3️⃣
+</div>
+
+<h3>
+Provide Details
+</h3>
+
+<p>
+Enter your business information, contact details and
+the information needed to understand your advertising
+request.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+4️⃣
+</div>
+
+<h3>
+Submit Request
+</h3>
+
+<p>
+Review your information carefully and submit your
+advertising request through the provided form.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+5️⃣
+</div>
+
+<h3>
+Review & Confirmation
+</h3>
+
+<p>
+Your request can be reviewed before the advertising
+arrangement is finalized.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+6️⃣
+</div>
+
+<h3>
+Campaign Begins
+</h3>
+
+<p>
+Once the advertising arrangement has been confirmed,
+your advertisement can be scheduled according to the
+selected package.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     PACKAGE OVERVIEW
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Advertising Packages
+</div>
+
+<h2>
+Choose the visibility that suits you
+</h2>
+
+<p>
+TechHub provides different advertising levels so that
+businesses can choose an option that matches their
+campaign needs.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<!-- BASIC -->
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📌
+</div>
+
+<h3>
+Basic Advertisement
+</h3>
+
+<p>
+
+<strong>
+$15
+</strong>
+
+</p>
+
+<p style="margin-top:8px;">
+
+Designed for businesses looking for a simple,
+cost-conscious promotional placement.
+
+</p>
+
+<div
+style="
+margin-top:14px;
+color:#ff806f;
+font-weight:800;
+"
+>
+
+Duration: 2 months
+
+</div>
+
+</div>
+
+
+<!-- FEATURED -->
+
+<div class="quick-card">
+
+<div class="quick-icon">
+⭐
+</div>
+
+<h3>
+Featured Advertisement
+</h3>
+
+<p>
+
+<strong>
+$25
+</strong>
+
+</p>
+
+<p style="margin-top:8px;">
+
+A larger and more noticeable advertising option
+for businesses wanting stronger visibility.
+
+</p>
+
+<div
+style="
+margin-top:14px;
+color:#ff806f;
+font-weight:800;
+"
+>
+
+Duration: 5 months
+
+</div>
+
+</div>
+
+
+<!-- PREMIUM -->
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🚀
+</div>
+
+<h3>
+Premium Advertisement
+</h3>
+
+<p>
+
+<strong>
+$40
+</strong>
+
+</p>
+
+<p style="margin-top:8px;">
+
+A prominent advertising option intended for businesses
+that want extended visibility across the site.
+
+</p>
+
+<div
+style="
+margin-top:14px;
+color:#ff806f;
+font-weight:800;
+"
+>
+
+Duration: 7 months
+
+</div>
+
+</div>
+
+
+<!-- CUSTOM -->
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🎯
+</div>
+
+<h3>
+Custom Campaign
+</h3>
+
+<p>
+
+<strong>
+Custom Pricing
+</strong>
+
+</p>
+
+<p style="margin-top:8px;">
+
+For businesses that need a campaign designed around
+specific promotional goals or requirements.
+
+</p>
+
+<div
+style="
+margin-top:14px;
+color:#ff806f;
+font-weight:800;
+"
+>
+
+Contact TechHub
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     PACKAGE DETAILS
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+📌 Basic Advertisement — 2 Months
+</h3>
+
+<p>
+
+The Basic package is intended for businesses that
+want an affordable promotional presence on the site.
+It can be suitable for a small business, individual
+entrepreneur or service provider testing online
+advertising.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+Suitable for businesses with a smaller advertising
+budget.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Designed as a simple promotional placement.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Campaign period: <strong>2 months</strong>.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Useful for introducing a business, product or
+service to TechHub visitors.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="intro-box">
+
+<h3>
+⭐ Featured Advertisement — 5 Months
+</h3>
+
+<p>
+
+The Featured package is designed for businesses that
+want a more noticeable promotional presence than a
+basic listing. It can be useful when a business wants
+to maintain visibility over a longer period.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+Designed for increased visibility compared with
+the Basic option.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Suitable for product promotions and business
+awareness campaigns.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Campaign period: <strong>5 months</strong>.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Useful for businesses seeking longer-term
+promotional exposure.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="intro-box">
+
+<h3>
+🚀 Premium Advertisement — 7 Months
+</h3>
+
+<p>
+
+The Premium package is intended for businesses that
+want a prominent advertising presence and a longer
+campaign period. It is suitable for businesses
+planning sustained promotion.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+Designed for prominent promotional placement.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Suitable for established businesses and
+longer-term campaigns.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Campaign period: <strong>7 months</strong>.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Useful for maintaining awareness over an
+extended period.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="intro-box">
+
+<h3>
+🎯 Custom Campaign
+</h3>
+
+<p>
+
+A Custom Campaign is for businesses whose advertising
+needs do not fit neatly into the standard packages.
+Instead of choosing only from the predefined options,
+the business can contact TechHub to discuss its
+requirements.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+Discuss your campaign objectives.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Explain the type of business or service you want
+to promote.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Discuss the preferred advertising period.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Discuss promotional placement and campaign
+requirements.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Receive a customized proposal or quotation.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     WHO CAN ADVERTISE
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Who Can Advertise?
+</div>
+
+<h2>
+Advertising can be useful for many types of businesses
+</h2>
+
+<p>
+The advertising service can be considered by businesses
+and individuals offering legitimate products or services.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🏪
+</div>
+
+<h3>
+Retail Businesses
+</h3>
+
+<p>
+Promote products available from your shop or
+business.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+💻
+</div>
+
+<h3>
+Technology Businesses
+</h3>
+
+<p>
+Promote technology products, services, repairs,
+training or related solutions.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🎓
+</div>
+
+<h3>
+Education Services
+</h3>
+
+<p>
+Promote legitimate educational programs, courses
+or training services.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🛠️
+</div>
+
+<h3>
+Service Providers
+</h3>
+
+<p>
+Introduce professional services and solutions
+to potential customers.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     BUSINESS INFORMATION
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+🏢 What information should an advertiser provide?
+</h3>
+
+<p>
+
+When submitting an advertising request, provide
+accurate information about your business. This makes
+it easier to understand your campaign and communicate
+with you about the advertisement.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+<strong>Business name:</strong>
+the name customers should recognize.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+<strong>Business description:</strong>
+a clear explanation of what your business does.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+<strong>Products or services:</strong>
+what you want potential customers to know about.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+<strong>Contact details:</strong>
+a phone number, email or other appropriate
+business contact information.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+<strong>Business location:</strong>
+provide location information where relevant.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+<strong>Advertising package:</strong>
+identify whether you want Basic, Featured,
+Premium or Custom advertising.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     ADVERTISING BENEFITS
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Business Benefits
+</div>
+
+<h2>
+Why a business may choose to advertise
+</h2>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+👁️
+</div>
+
+<h3>
+Increase Visibility
+</h3>
+
+<p>
+Place your business in front of people visiting
+the TechHub platform.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📣
+</div>
+
+<h3>
+Promote Offers
+</h3>
+
+<p>
+Use advertising to communicate a promotion,
+product launch or special business message.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🌐
+</div>
+
+<h3>
+Build Awareness
+</h3>
+
+<p>
+Help potential customers become familiar with your
+business and what it provides.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📈
+</div>
+
+<h3>
+Support Growth
+</h3>
+
+<p>
+Advertising can become one part of a broader strategy
+for reaching potential customers.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     ADVERTISING EXPECTATIONS
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+📊 Important advertising expectations
+</h3>
+
+<p>
+
+Advertising provides promotional visibility, but no
+advertising placement can guarantee a specific number
+of customers, sales, clicks or enquiries.
+
+</p>
+
+<p style="margin-top:14px;">
+
+The effectiveness of a campaign can depend on factors
+such as the quality of the advertisement, the product
+or service being promoted, the audience, pricing,
+competition and customer interest.
+
+</p>
+
+<p style="margin-top:14px;">
+
+Businesses should therefore view advertising as a
+promotional opportunity rather than a guarantee of
+sales or revenue.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     ADVERTISEMENT QUALITY
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+✨ Creating a better advertisement
+</h3>
+
+<p>
+
+A clear and useful advertisement is easier for visitors
+to understand. When preparing your advertising information,
+focus on what a potential customer actually needs to know.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+Use a clear business name.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Clearly explain the product or service.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Use accurate contact information.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Avoid misleading claims.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Clearly communicate important offers or conditions.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Keep promotional information professional and
+easy to understand.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     ADVERTISING SUBMISSION
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:50px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Submit an Advertisement
+</div>
+
+<h2>
+What happens after you choose a package?
+</h2>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📝
+</div>
+
+<h3>
+Complete the Form
+</h3>
+
+<p>
+Enter the requested business and advertising
+information accurately.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🔎
+</div>
+
+<h3>
+Review Your Details
+</h3>
+
+<p>
+Check your business name, contact information,
+package and campaign details.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📨
+</div>
+
+<h3>
+Submit the Request
+</h3>
+
+<p>
+Send the completed advertising request through
+the available form.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🤝
+</div>
+
+<h3>
+Discuss the Campaign
+</h3>
+
+<p>
+TechHub can contact you to confirm the advertising
+arrangement and any required details.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     CUSTOM CAMPAIGN
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+🎯 When should you choose Custom Campaign?
+</h3>
+
+<p>
+
+Choose Custom Campaign when your promotional needs
+require something different from the standard Basic,
+Featured or Premium packages.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+You want to discuss a different campaign duration.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+You have a specific promotional objective.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+You need a customized advertising arrangement.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+You want to discuss a larger or specialized
+campaign.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     ADVERTISING SAFETY
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+🔐 Advertising responsibly
+</h3>
+
+<p>
+
+Advertisers should provide truthful and accurate
+information about their businesses, products and
+services. Avoid submitting false claims, deceptive
+offers or information intended to mislead visitors.
+
+</p>
+
+<p style="margin-top:14px;">
+
+Only advertise products and services that you are
+legitimately authorized to offer. Advertising requests
+may be reviewed before publication.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     ADVERTISING CHECKLIST
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+📋 Advertiser checklist
+</h3>
+
+<p>
+Before submitting your advertising request, make
+sure you have:
+</p>
+
+
+<div class="info-list">
+
+
+<div>
+<span>✓</span>
+<span>
+Chosen the appropriate advertising package.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Prepared accurate business information.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Prepared valid contact details.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Clearly described the product or service.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Checked the selected campaign duration.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Reviewed all information before submitting.
+</span>
+</div>
+
+
+<div>
+<span>✓</span>
+<span>
+Understood that advertising does not guarantee
+sales or a specific number of customers.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     PACKAGE SUMMARY
+========================================= -->
+
+<div
+    class="intro-box"
+    style="
+        margin-top:30px;
+        overflow-x:auto;
+    "
+>
+
+<h3>
+📊 Advertising package summary
+</h3>
+
+
+<table
+style="
+width:100%;
+border-collapse:collapse;
+margin-top:18px;
+min-width:600px;
+"
+>
+
+<thead>
+
+<tr>
+
+<th
+style="
+text-align:left;
+padding:14px;
+border-bottom:1px solid var(--border);
+"
+>
+Package
+</th>
+
+
+<th
+style="
+text-align:left;
+padding:14px;
+border-bottom:1px solid var(--border);
+"
+>
+Price
+</th>
+
+
+<th
+style="
+text-align:left;
+padding:14px;
+border-bottom:1px solid var(--border);
+"
+>
+Duration
+</th>
+
+
+<th
+style="
+text-align:left;
+padding:14px;
+border-bottom:1px solid var(--border);
+"
+>
+Purpose
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr>
+
+<td style="padding:14px;">
+Basic
+</td>
+
+<td style="padding:14px;">
+$15
+</td>
+
+<td style="padding:14px;">
+2 months
+</td>
+
+<td style="padding:14px;color:var(--muted);">
+Simple promotional placement
+</td>
+
+</tr>
+
+
+<tr>
+
+<td style="padding:14px;">
+Featured
+</td>
+
+<td style="padding:14px;">
+$25
+</td>
+
+<td style="padding:14px;">
+5 months
+</td>
+
+<td style="padding:14px;color:var(--muted);">
+More noticeable promotion
+</td>
+
+</tr>
+
+
+<tr>
+
+<td style="padding:14px;">
+Premium
+</td>
+
+<td style="padding:14px;">
+$40
+</td>
+
+<td style="padding:14px;">
+7 months
+</td>
+
+<td style="padding:14px;color:var(--muted);">
+Prominent extended promotion
+</td>
+
+</tr>
+
+
+<tr>
+
+<td style="padding:14px;">
+Custom
+</td>
+
+<td style="padding:14px;">
+Contact us
+</td>
+
+<td style="padding:14px;">
+Discussed
+</td>
+
+<td style="padding:14px;color:var(--muted);">
+Customized campaign
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<!-- =========================================
+     ADVERTISING NAVIGATION
+========================================= -->
+
+<div
+    class="hero-actions"
+    style="
+        margin-top:40px;
+        justify-content:center;
+    "
+>
+
+<a
+    href="advertising.html"
+    class="btn btn-primary"
+>
+
+📢 Go to Advertising
+
+</a>
+
+
+<a
+    href="#help-section"
+    class="btn btn-secondary"
+>
+
+Continue to FAQs & Help →
+
+</a>
+
+</div>
+
+</section>
+<!-- =========================================
+     PART 5 — FAQ, HELP & SITE INFORMATION
+========================================= -->
+
+<section
+    class="section"
+    id="help-section"
+>
+
+<div class="section-heading">
+
+    <div class="label">
+        Help Center
+    </div>
+
+    <h2>
+        Frequently Asked Questions
+    </h2>
+
+    <p>
+        Here are answers to some common questions about
+        using TechHub, ordering products and advertising
+        a business.
+    </p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 1
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ Do I need an account to browse Deals?
+</h3>
+
+<p>
+
+Not necessarily. The Deals section is designed to
+allow visitors to explore available technology
+products. If the website requires specific information
+before ordering, follow the instructions displayed
+during checkout.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 2
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ Can I search for a specific product?
+</h3>
+
+<p>
+
+Yes. Use the search bar on the Deals page and enter
+a relevant product name, brand, category or keyword.
+The available listings can then be filtered according
+to your search.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 3
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ Can I add more than one product to my cart?
+</h3>
+
+<p>
+
+Yes. You can add different products to your cart and
+review them together before proceeding to checkout.
+You can also adjust quantities where those controls
+are available.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 4
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ Does adding something to my cart place an order?
+</h3>
+
+<p>
+
+No. Adding a product to the cart only prepares it for
+your order request. You still need to open the cart,
+review your selections, complete the order information
+and submit the order.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 5
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ Is the displayed product price always final?
+</h3>
+
+<p>
+
+The displayed price is the current listed price shown
+on the website. However, availability and final pricing
+may need to be confirmed before an order is completed.
+Always review the current listing and any confirmation
+you receive.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 6
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ What happens after I submit an order?
+</h3>
+
+<p>
+
+Your order information is submitted for review. TechHub
+can then contact you using the information you provided
+to discuss product availability, final pricing, delivery
+or collection arrangements and payment options.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 7
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ Is submitting an order the same as making payment?
+</h3>
+
+<p>
+
+No. Submitting an order request does not by itself mean
+that payment has been completed. Wait for the appropriate
+confirmation and payment instructions.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 8
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ How can a business advertise on TechHub?
+</h3>
+
+<p>
+
+Open the Advertising page, review the available packages,
+choose the option that suits your campaign and complete
+the advertising request form with accurate business
+information.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 9
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ What advertising packages are available?
+</h3>
+
+<p>
+
+The standard options are Basic, Featured and Premium.
+There is also a Custom Campaign option for businesses
+that want to discuss requirements outside the standard
+packages.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 10
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ How long do the advertising packages run?
+</h3>
+
+<div class="info-list">
+
+<div>
+<span>📌</span>
+<span>
+<strong>Basic:</strong> 2 months.
+</span>
+</div>
+
+<div>
+<span>⭐</span>
+<span>
+<strong>Featured:</strong> 5 months.
+</span>
+</div>
+
+<div>
+<span>🚀</span>
+<span>
+<strong>Premium:</strong> 7 months.
+</span>
+</div>
+
+<div>
+<span>🎯</span>
+<span>
+<strong>Custom:</strong> duration discussed according
+to the campaign.
+</span>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 11
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ Does advertising guarantee customers or sales?
+</h3>
+
+<p>
+
+No. Advertising is intended to provide promotional
+visibility, but it cannot guarantee a particular number
+of customers, enquiries, clicks, sales or revenue.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 12
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ What information should a business provide?
+</h3>
+
+<p>
+
+Advertisers should provide accurate business information,
+a clear description of their products or services,
+appropriate contact information and the advertising
+package or campaign they are interested in.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 13
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ What if I make a mistake in my order?
+</h3>
+
+<p>
+
+If you notice a mistake before submitting your order,
+return to the relevant field and correct it. If you
+notice a problem after submission, contact TechHub as
+soon as possible and provide enough information for
+your order to be identified.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     FAQ 14
+========================================= -->
+
+<div class="intro-box guide-item">
+
+<h3>
+    ❓ What if the website does not submit my form?
+</h3>
+
+<p>
+
+First check your internet connection and make sure all
+required fields have been completed. If the problem
+continues, try again later or contact TechHub through
+the available contact channel.
+
+</p>
+
+</div>
+
+
+<!-- =========================================
+     GENERAL SITE GUIDE
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:55px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Using TechHub
+</div>
+
+<h2>
+Get the most from the website
+</h2>
+
+<p>
+A few simple habits can make your experience easier
+and safer.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🔎
+</div>
+
+<h3>
+Use Search
+</h3>
+
+<p>
+Instead of manually scrolling through many listings,
+use search whenever you already know what you are
+looking for.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📖
+</div>
+
+<h3>
+Read Information
+</h3>
+
+<p>
+Do not rely only on product names or images. Read the
+available descriptions and information before ordering.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🔄
+</div>
+
+<h3>
+Check Current Information
+</h3>
+
+<p>
+Technology products, prices, availability and promotions
+can change. Check the current page before taking action.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📞
+</div>
+
+<h3>
+Keep Contact Details Accurate
+</h3>
+
+<p>
+Correct contact information helps TechHub communicate
+with you about orders or advertising requests.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     VISITOR GUIDE
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+🌐 For visitors
+</h3>
+
+<p>
+
+If you are simply exploring TechHub, you can use the
+website to discover technology products, learn about
+available services and explore business advertisements.
+
+</p>
+
+<div class="info-list">
+
+<div>
+<span>✓</span>
+<span>
+Explore the available website sections.
+</span>
+</div>
+
+<div>
+<span>✓</span>
+<span>
+Browse technology deals.
+</span>
+</div>
+
+<div>
+<span>✓</span>
+<span>
+Search for products that interest you.
+</span>
+</div>
+
+<div>
+<span>✓</span>
+<span>
+Read advertisements and business information.
+</span>
+</div>
+
+<div>
+<span>✓</span>
+<span>
+Use the Contact page when you need assistance.
+</span>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     CUSTOMER GUIDE
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+🛍️ For customers
+</h3>
+
+<p>
+
+Customers can use TechHub to discover technology
+products and submit order requests. Before ordering,
+make sure you understand the product information and
+have provided accurate contact details.
+
+</p>
+
+<div class="info-list">
+
+<div>
+<span>1.</span>
+<span>
+Browse Deals.
+</span>
+</div>
+
+<div>
+<span>2.</span>
+<span>
+Search for the product you want.
+</span>
+</div>
+
+<div>
+<span>3.</span>
+<span>
+Review its information and price.
+</span>
+</div>
+
+<div>
+<span>4.</span>
+<span>
+Add it to your cart.
+</span>
+</div>
+
+<div>
+<span>5.</span>
+<span>
+Review the cart.
+</span>
+</div>
+
+<div>
+<span>6.</span>
+<span>
+Complete checkout.
+</span>
+</div>
+
+<div>
+<span>7.</span>
+<span>
+Submit the order request.
+</span>
+</div>
+
+<div>
+<span>8.</span>
+<span>
+Wait for confirmation.
+</span>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     ADVERTISER GUIDE
+========================================= -->
+
+<div class="intro-box">
+
+<h3>
+📢 For advertisers
+</h3>
+
+<p>
+
+If you own or represent a business, you can explore
+TechHub advertising options and select a campaign
+appropriate for your promotional objectives.
+
+</p>
+
+<div class="info-list">
+
+<div>
+<span>✓</span>
+<span>
+Choose Basic, Featured, Premium or Custom.
+</span>
+</div>
+
+<div>
+<span>✓</span>
+<span>
+Prepare your business information.
+</span>
+</div>
+
+<div>
+<span>✓</span>
+<span>
+Provide accurate contact information.
+</span>
+</div>
+
+<div>
+<span>✓</span>
+<span>
+Explain what your business offers.
+</span>
+</div>
+
+<div>
+<span>✓</span>
+<span>
+Submit the advertising request.
+</span>
+</div>
+
+<div>
+<span>✓</span>
+<span>
+Wait for campaign review and confirmation.
+</span>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     PRIVACY & SECURITY
+========================================= -->
+
+<section
+    class="section"
+    style="padding-top:55px;"
+>
+
+<div class="section-heading">
+
+<div class="label">
+Safety & Privacy
+</div>
+
+<h2>
+Use the site responsibly
+</h2>
+
+<p>
+Protect your personal information and be careful when
+communicating or making transactions online.
+</p>
+
+</div>
+
+
+<div class="quick-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🔐
+</div>
+
+<h3>
+Protect Credentials
+</h3>
+
+<p>
+Never enter passwords, PINs, one-time verification
+codes or other account-security credentials into an
+ordinary order or advertising form.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+📱
+</div>
+
+<h3>
+Use Your Own Contact Details
+</h3>
+
+<p>
+Only provide contact information that you are
+authorized to use.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+⚠️
+</div>
+
+<h3>
+Verify Requests
+</h3>
+
+<p>
+Be cautious of anyone requesting sensitive information
+or claiming to represent the business without proper
+verification.
+</p>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-icon">
+🛡️
+</div>
+
+<h3>
+Stay Alert
+</h3>
+
+<p>
+If something appears suspicious, stop and verify the
+information through an appropriate official channel.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT / HELP
+========================================= -->
+
+<div
+    class="intro-box"
+    id="contact-help"
+>
+
+<h3>
+📞 Need additional help?
+</h3>
+
+<p>
+
+If you cannot find the answer you need in this guide,
+visit the Contact page to find the available
+communication options.
+
+</p>
+
+
+<div
+    class="hero-actions"
+    style="
+        margin-top:20px;
+    "
+>
+
+<a
+    href="contact.html"
+    class="btn btn-primary"
+>
+
+Contact TechHub
+
+</a>
+
+
+<a
+    href="deals.html"
+    class="btn btn-secondary"
+>
+
+Browse Deals
+
+</a>
+
+
+<a
+    href="advertising.html"
+    class="btn btn-secondary"
+>
+
+Advertise With Us
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     QUICK NAVIGATION
+========================================= -->
+
+<div
+    class="intro-box"
+    style="
+        margin-top:30px;
+        text-align:center;
+    "
+>
+
+<h3>
+🧭 Quick Navigation
+</h3>
+
+<p>
+Return to any major area of TechHub using the
+buttons below.
+</p>
+
+
+<div
+    class="hero-actions"
+    style="
+        margin-top:20px;
+        justify-content:center;
+    "
+>
+
+<a
+    href="index.html"
+    class="btn btn-secondary"
+>
+🏠 Home
+</a>
+
+
+<a
+    href="deals.html"
+    class="btn btn-secondary"
+>
+🛍️ Deals
+</a>
+
+
+<a
+    href="advertising.html"
+    class="btn btn-secondary"
+>
+📢 Advertising
+</a>
+
+
+<a
+    href="about.html"
+    class="btn btn-secondary"
+>
+ℹ️ About
+</a>
+
+
+<a
+    href="contact.html"
+    class="btn btn-secondary"
+>
+📞 Contact
+</a>
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     FINAL MESSAGE
+========================================= -->
+
+<div
+    class="hero"
+    style="
+        margin-top:45px;
+        text-align:center;
+    "
+>
+
+<div class="hero-content" style="max-width:850px;margin:auto;">
+
+<div class="eyebrow">
+<span></span>
+Thank You For Using TechHub
+</div>
+
+
+<h2
+style="
+font-size:clamp(1.8rem,5vw,3rem);
+margin-bottom:15px;
+"
+>
+
+Technology.
+Business.
+Opportunity.
+
+</h2>
+
+
+<p>
+
+Whether you are discovering a new device, preparing
+an order or promoting your business, we hope this guide
+makes your TechHub experience easier, clearer and more
+useful.
+
+</p>
+
+
+<div
+class="hero-actions"
+style="
+justify-content:center;
+"
+>
+
+<a
+href="index.html"
+class="btn btn-primary"
+>
+Return Home
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+</main>
+
+
+<!-- =========================================
+     SIMPLE PAGE END
+========================================= -->
+
+<div
+style="
+width:min(1180px,92%);
+margin:50px auto 30px;
+padding-top:20px;
+border-top:1px solid var(--border);
+text-align:center;
+color:var(--muted);
+font-size:.85rem;
+"
+>
+
+<p>
+© <span id="currentYear"></span> TechHub.
+All rights reserved.
+</p>
+
+<p style="margin-top:5px;">
+User Guide & Help Center
+</p>
+
+</div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+/* =========================================
+   CURRENT YEAR
+========================================= */
+
+const yearElement =
+document.getElementById("currentYear");
+
+if(yearElement){
+
+    yearElement.textContent =
+    new Date().getFullYear();
+
+}
+
+
+/* =========================================
+   GUIDE SEARCH
+========================================= */
+
+const guideSearch =
+document.getElementById("guideSearch");
+
+
+const guideItems =
+document.querySelectorAll(
+    ".guide-item, .quick-card, .intro-box"
+);
+
+
+if(guideSearch){
+
+    guideSearch.addEventListener(
+        "input",
+        function(){
+
+            const searchTerm =
+            this.value
+            .trim()
+            .toLowerCase();
+
+
+            if(!searchTerm){
+
+                guideItems.forEach(
+                    item => {
+
+                        item.style.display =
+                        "";
+
+                    }
+                );
+
+                return;
+
+            }
+
+
+            guideItems.forEach(
+                item => {
+
+                    const content =
+                    item.textContent
+                    .toLowerCase();
+
+
+                    if(
+                        content.includes(searchTerm)
+                    ){
+
+                        item.style.display =
+                        "";
+
+                    }else{
+
+                        item.style.display =
+                        "none";
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const revealItems =
+document.querySelectorAll(
+    ".quick-card, .intro-box, .hero"
+);
+
+
+const revealObserver =
+new IntersectionObserver(
+    entries => {
+
+        entries.forEach(
+            entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add(
+                        "guide-visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            }
+        );
+
+    },
+    {
+        threshold:0.08
+    }
+);
+
+
+revealItems.forEach(
+    item => {
+
+        item.classList.add(
+            "guide-reveal"
+        );
+
+        revealObserver.observe(item);
+
+    }
+);
+
+
+/* =========================================
+   BACK TO TOP WHEN LOGO IS CLICKED
+========================================= */
+
+const logo =
+document.querySelector(".logo");
+
+
+if(logo){
+
+    logo.addEventListener(
+        "click",
+        function(){
+
+            /*
+              The normal link still works.
+              This listener intentionally does not
+              prevent navigation.
+            */
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   ACCESSIBLE SEARCH SHORTCUT
+   Press "/" to focus the guide search.
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "/" &&
+            document.activeElement.tagName !== "INPUT" &&
+            document.activeElement.tagName !== "TEXTAREA"
+        ){
+
+            event.preventDefault();
+
+            if(guideSearch){
+
+                guideSearch.focus();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   SEARCH ESCAPE
+========================================= */
+
+if(guideSearch){
+
+    guideSearch.addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Escape"){
+
+                guideSearch.value = "";
+
+                guideSearch.dispatchEvent(
+                    new Event("input")
+                );
+
+                guideSearch.blur();
+
+            }
+
+        }
+    );
+
+}
+
+</script>
+
+
+<!-- =========================================
+     FINAL ANIMATION CSS
+========================================= -->
+
+<style>
+
+.guide-reveal{
+
+    opacity:0;
+
+    transform:
+    translateY(18px);
+
+    transition:
+    opacity .65s ease,
+    transform .65s ease;
+
+}
+
+
+.guide-visible{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+
+@media(
+    prefers-reduced-motion:reduce
+){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+
+    .guide-reveal{
+
+        opacity:1;
+
+        transform:none;
+
+        transition:none;
+
+    }
+
+
+    .quick-card,
+    .btn{
+
+        transition:none;
+
+    }
+
+}
+
+</style>
+
+
+</body>
+
+</html>

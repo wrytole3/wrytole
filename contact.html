@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Contact Wrytole for questions, advertising, business inquiries, technology tips, partnerships and website feedback.">
+
+<title>Contact Us | Wrytole</title>
+
+<style>
+
+:root{
+  --bg:#07111f;
+  --card:#0d1b2d;
+  --text:#f4f8ff;
+  --muted:#aabbd0;
+  --accent:#ff3b30;
+  --accent2:#ff8a65;
+  --line:rgba(255,255,255,.10);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,
+  "Segoe UI",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(
+      circle at 10% 5%,
+      rgba(255,59,48,.15),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(0,156,255,.10),
+      transparent 25%
+    ),
+    var(--bg);
+  min-height:100vh;
+}
+
+a{
+  color:inherit;
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  padding:18px 0;
+  border-bottom:1px solid var(--line);
+  background:rgba(4,11,20,.82);
+  backdrop-filter:blur(15px);
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  text-decoration:none;
+  font-size:1.3rem;
+  font-weight:950;
+}
+
+.logo span{
+  color:var(--accent);
+}
+
+.nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--muted);
+  padding:9px 12px;
+  border-radius:10px;
+  font-size:.88rem;
+  transition:.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#fff;
+  background:rgba(255,255,255,.07);
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:75px 0 55px;
+  animation:rise .7s ease;
+}
+
+.pill{
+  display:inline-block;
+  padding:8px 15px;
+  border-radius:999px;
+  background:rgba(255,59,48,.09);
+  border:1px solid rgba(255,122,89,.3);
+  color:#ffb2a6;
+  font-size:.78rem;
+  font-weight:850;
+}
+
+.hero h1{
+  font-size:clamp(2.5rem,7vw,5rem);
+  line-height:.96;
+  letter-spacing:-2px;
+  margin:18px 0;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:1.05rem;
+}
+
+/* CONTACT OPTIONS */
+
+.contact-options{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:45px;
+}
+
+.option{
+  background:linear-gradient(
+    145deg,
+    rgba(16,36,59,.95),
+    rgba(9,23,39,.95)
+  );
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:24px;
+  transition:.25s;
+}
+
+.option:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,122,89,.45);
+}
+
+.option-icon{
+  font-size:2rem;
+  margin-bottom:13px;
+}
+
+.option h3{
+  margin-bottom:8px;
+}
+
+.option p{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:.87rem;
+}
+
+/* MAIN CONTACT */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:23px;
+  align-items:start;
+}
+
+.card{
+  background:linear-gradient(
+    145deg,
+    rgba(16,36,59,.97),
+    rgba(9,23,39,.97)
+  );
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:30px;
+  box-shadow:0 22px 60px rgba(0,0,0,.25);
+}
+
+.card h2{
+  margin-bottom:10px;
+}
+
+.intro{
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:25px;
+}
+
+/* FORM */
+
+form{
+  display:grid;
+  gap:17px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+label{
+  display:grid;
+  gap:7px;
+  font-size:.88rem;
+  font-weight:750;
+}
+
+.optional{
+  color:#71839a;
+  font-weight:500;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#071626;
+  color:#fff;
+  font:inherit;
+  outline:none;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#60758d;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#ff806d;
+  box-shadow:0 0 0 3px rgba(255,59,48,.1);
+}
+
+textarea{
+  min-height:160px;
+  resize:vertical;
+}
+
+.submit-button{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:13px;
+  color:#fff;
+  background:linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent2)
+  );
+  font-size:1rem;
+  font-weight:900;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.submit-button:hover{
+  transform:translateY(-2px);
+}
+
+.submit-button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+/* STATUS */
+
+.status{
+  display:none;
+  padding:14px;
+  border-radius:12px;
+  line-height:1.6;
+}
+
+.status.success{
+  display:block;
+  color:#bff5da;
+  background:rgba(57,217,138,.1);
+  border:1px solid rgba(57,217,138,.3);
+}
+
+.status.error{
+  display:block;
+  color:#ffc2ba;
+  background:rgba(255,59,48,.1);
+  border:1px solid rgba(255,59,48,.3);
+}
+
+/* SIDE CARDS */
+
+.side-card{
+  margin-bottom:18px;
+}
+
+.side-card:last-child{
+  margin-bottom:0;
+}
+
+.side-card h3{
+  margin-bottom:10px;
+}
+
+.side-card p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:.9rem;
+}
+
+.contact-link{
+  display:inline-block;
+  margin-top:13px;
+  color:#ffb2a6;
+  text-decoration:none;
+  font-weight:850;
+}
+
+.contact-link:hover{
+  color:#fff;
+}
+
+/* INFORMATION */
+
+.information{
+  margin-top:55px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.section-title h2{
+  font-size:2rem;
+  margin-bottom:9px;
+}
+
+.section-title p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.info-card{
+  padding:25px;
+  border-radius:21px;
+  background:rgba(255,255,255,.025);
+  border:1px solid var(--line);
+}
+
+.info-card h3{
+  margin-bottom:9px;
+}
+
+.info-card p{
+  color:var(--muted);
+  line-height:1.65;
+  font-size:.88rem;
+}
+
+/* FAQ */
+
+.faq{
+  margin:55px 0;
+}
+
+.faq details{
+  background:rgba(255,255,255,.025);
+  border:1px solid var(--line);
+  border-radius:15px;
+  margin-bottom:12px;
+  overflow:hidden;
+}
+
+summary{
+  cursor:pointer;
+  padding:17px 18px;
+  font-weight:800;
+  list-style:none;
+}
+
+summary::-webkit-details-marker{
+  display:none;
+}
+
+details p{
+  color:var(--muted);
+  line-height:1.7;
+  padding:0 18px 18px;
+  font-size:.9rem;
+}
+
+/* CTA */
+
+.cta{
+  margin:45px 0 70px;
+  padding:42px;
+  border-radius:27px;
+  text-align:center;
+  background:linear-gradient(
+    135deg,
+    rgba(255,59,48,.14),
+    rgba(255,138,101,.05)
+  );
+  border:1px solid rgba(255,122,89,.25);
+}
+
+.cta h2{
+  margin-bottom:10px;
+}
+
+.cta p{
+  max-width:650px;
+  margin:0 auto 22px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.btn{
+  display:inline-block;
+  margin:5px;
+  padding:13px 20px;
+  border-radius:13px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:900;
+  background:linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent2)
+  );
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+/* ANIMATION */
+
+@keyframes rise{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+  .contact-options{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .form-grid,
+  .contact-options{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:23px;
+  }
+
+  .hero h1{
+    letter-spacing:-1px;
+  }
+
+  .cta{
+    padding:28px 20px;
+  }
+
+}
+
+</style>
+</head>
+<body>
+    <header>
+
+<div class="container">
+
+<nav>
+
+<a href="index.html" class="logo">
+Wry<span>tole</span>
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="guides.html">Guides</a>
+
+<a href="deals.html">Deals</a>
+
+<a href="advertising.html">Advertise</a>
+
+<a href="donate.html">Donate</a>
+
+<a href="contact.html" class="active">Contact</a>
+
+</div>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<span class="pill">
+GET IN TOUCH
+</span>
+
+<h1>
+How can we help?
+</h1>
+
+<p>
+Have a question, business inquiry, advertising request,
+technology tip, partnership idea or suggestion?
+Send us a message and we'll review it carefully.
+</p>
+
+</section>
+
+
+<!-- CONTACT OPTIONS -->
+
+<section class="contact-options">
+
+<article class="option">
+
+<div class="option-icon">📧</div>
+
+<h3>Email</h3>
+
+<p>
+Contact us for general questions, support,
+information and other enquiries.
+</p>
+
+</article>
+
+
+<article class="option">
+
+<div class="option-icon">💬</div>
+
+<h3>WhatsApp</h3>
+
+<p>
+Reach us through WhatsApp when you need
+a convenient way to communicate.
+</p>
+
+</article>
+
+
+<article class="option">
+
+<div class="option-icon">📢</div>
+
+<h3>Advertising</h3>
+
+<p>
+Businesses can contact us about promoting
+their products and services.
+</p>
+
+</article>
+
+
+<article class="option">
+
+<div class="option-icon">💡</div>
+
+<h3>Suggestions</h3>
+
+<p>
+Share ideas, technology tips, content suggestions
+or improvements for our platform.
+</p>
+
+</article>
+
+</section>
+
+
+<!-- CONTACT FORM + SIDE INFORMATION -->
+
+<section class="contact-grid">
+
+
+<div class="card">
+
+<h2>
+Send us a message
+</h2>
+
+<p class="intro">
+Complete the form below with as much useful information
+as possible. Your message will be submitted directly to us.
+</p>
+
+
+<form
+id="contactForm"
+action="https://formspree.io/f/mjybdrle"
+method="POST"
+>
+
+
+<!-- IDENTIFICATION -->
+
+<input
+type="hidden"
+name="submission_type"
+value="CONTACT MESSAGE"
+>
+
+<input
+type="hidden"
+name="_subject"
+value="New Wrytole Contact Message"
+>
+
+
+<div class="form-grid">
+
+
+<label>
+
+Full Name
+
+<input
+type="text"
+name="name"
+autocomplete="name"
+placeholder="Enter your full name"
+required
+>
+
+</label>
+
+
+<label>
+
+Email Address
+
+<input
+type="email"
+name="email"
+autocomplete="email"
+placeholder="you@example.com"
+required
+>
+
+</label>
+
+
+<label>
+
+Phone / WhatsApp
+<span class="optional">
+(optional)
+</span>
+
+<input
+type="tel"
+name="phone"
+autocomplete="tel"
+placeholder="+256..."
+>
+
+</label>
+
+
+<label>
+
+Subject
+
+<input
+type="text"
+name="subject"
+placeholder="What is your message about?"
+required
+>
+
+</label>
+
+
+</div>
+
+
+<label>
+
+Reason for Contact
+
+<select name="reason" required>
+
+<option value="">
+Select a reason
+</option>
+
+<option>
+General Question
+</option>
+
+<option>
+Advertising
+</option>
+
+<option>
+Business Inquiry
+</option>
+
+<option>
+Technology Tip / News
+</option>
+
+<option>
+Website Feedback
+</option>
+
+<option>
+Partnership
+</option>
+
+<option>
+Content Suggestion
+</option>
+
+<option>
+Technical Problem
+</option>
+
+<option>
+Other
+</option>
+
+</select>
+
+</label>
+
+
+<label>
+
+Website or Social Media Link
+<span class="optional">
+(optional)
+</span>
+
+<input
+type="url"
+name="website_or_social"
+placeholder="https://example.com"
+>
+
+</label>
+
+
+<label>
+
+Message
+
+<textarea
+name="message"
+placeholder="Write your message here. Please provide enough information to help us understand your request..."
+required
+></textarea>
+
+</label>
+
+
+<div
+id="status"
+class="status"
+role="status"
+aria-live="polite"
+></div>
+
+
+<button
+type="submit"
+class="submit-button"
+id="submitButton"
+>
+
+Send Message
+
+</button>
+
+
+</form>
+
+</div>
+
+
+<!-- SIDE INFORMATION -->
+
+<aside>
+
+
+<div class="card side-card">
+
+<h3>
+📢 Want to advertise?
+</h3>
+
+<p>
+If you represent a business and want to promote
+your products or services, view our advertising
+packages and submit your business information
+through our dedicated advertising page.
+</p>
+
+<a
+href="advertising.html"
+class="contact-link"
+>
+View Advertising Packages →
+</a>
+
+</div>
+
+
+<div class="card side-card">
+
+<h3>
+💡 Have a technology tip?
+</h3>
+
+<p>
+Know about a new device, technology development,
+useful application, digital service or important
+technology story? Send the information to us.
+</p>
+
+</div>
+
+
+<div class="card side-card">
+
+<h3>
+🤝 Business & Partnerships
+</h3>
+
+<p>
+For collaborations, partnerships, business proposals,
+sponsorship opportunities or other professional
+inquiries, select the appropriate contact reason
+in the form.
+</p>
+
+</div>
+
+
+<div class="card side-card">
+
+<h3>
+🔒 Your Information
+</h3>
+
+<p>
+Please avoid submitting passwords, banking PINs,
+mobile-money PINs, verification codes or other
+highly sensitive information through this contact form.
+</p>
+
+</div>
+
+
+</aside>
+
+</section>
+
+
+<!-- INFORMATION -->
+
+<section class="information">
+
+<div class="section-title">
+
+<h2>
+What You Can Contact Us About
+</h2>
+
+<p>
+Our contact page is open to different types of
+questions and opportunities.
+</p>
+
+</div>
+
+
+<div class="info-grid">
+
+
+<article class="info-card">
+
+<h3>
+Technology Questions
+</h3>
+
+<p>
+Ask questions about technology topics, devices,
+digital tools, websites, applications and other
+technology-related subjects.
+</p>
+
+</article>
+
+
+<article class="info-card">
+
+<h3>
+Business Enquiries
+</h3>
+
+<p>
+Businesses can contact us about advertising,
+partnerships, collaborations, promotions and
+other business opportunities.
+</p>
+
+</article>
+
+
+<article class="info-card">
+
+<h3>
+Content Suggestions
+</h3>
+
+<p>
+Suggest topics, guides, devices, technology news,
+deals or other content that you would like to see
+on Wrytole.
+</p>
+
+</article>
+
+
+<article class="info-card">
+
+<h3>
+Website Feedback
+</h3>
+
+<p>
+Tell us what you like, what could be improved,
+or if you discover a problem while using the site.
+</p>
+
+</article>
+
+
+<article class="info-card">
+
+<h3>
+Advertising Support
+</h3>
+
+<p>
+If you have questions about an advertising package,
+campaign or submitted advertising request, contact us.
+</p>
+
+</article>
+
+
+<article class="info-card">
+
+<h3>
+Partnership Opportunities
+</h3>
+
+<p>
+We welcome relevant ideas for collaborations,
+digital projects and opportunities that can provide
+value to our audience.
+</p>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="faq">
+
+<div class="section-title">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+<p>
+Some quick answers before you send your message.
+</p>
+
+</div>
+
+
+<details>
+
+<summary>
+How do I advertise my business?
+</summary>
+
+<p>
+Visit the Advertising page, choose your preferred
+advertising package, complete the business information
+and submit your advertising request.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Can I suggest a technology story?
+</summary>
+
+<p>
+Yes. Select "Technology Tip / News" or
+"Content Suggestion" in the contact form and provide
+the relevant information.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Can I contact Wrytole about a partnership?
+</summary>
+
+<p>
+Yes. Select "Partnership" and provide details about
+your organization, proposal and what you would like
+to achieve.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Can I report a problem with the website?
+</summary>
+
+<p>
+Yes. Select "Technical Problem" or "Website Feedback"
+and explain what happened, where it happened and,
+if possible, what you expected to happen.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Will my message be published publicly?
+</summary>
+
+<p>
+No. A normal contact message is intended for
+communication with Wrytole and is not automatically
+published as website content.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+What information should I avoid sending?
+</summary>
+
+<p>
+Never send passwords, mobile-money PINs, banking PINs,
+verification codes or other confidential account
+credentials through this form.
+</p>
+
+</details>
+
+</section>
+
+
+<!-- FINAL CTA -->
+
+<section class="cta">
+
+<h2>
+Looking for something else?
+</h2>
+
+<p>
+Explore Wrytole, discover trending technology and deals,
+learn through our guides, or find out how your business
+can reach our audience.
+</p>
+
+
+<a
+href="deals.html"
+class="btn"
+>
+Explore Deals
+</a>
+
+
+<a
+href="guides.html"
+class="btn"
+>
+Browse Guides
+</a>
+
+
+<a
+href="advertising.html"
+class="btn"
+>
+Advertise With Us
+</a>
+
+
+</section>
+
+
+</main>
+<script>
+
+const form =
+document.getElementById("contactForm");
+
+const statusBox =
+document.getElementById("status");
+
+const submitButton =
+document.getElementById("submitButton");
+
+
+form.addEventListener(
+"submit",
+async function(event){
+
+  event.preventDefault();
+
+
+  /* Disable button while sending */
+
+  submitButton.disabled = true;
+
+  submitButton.textContent =
+  "Sending...";
+
+
+  /* Clear previous message */
+
+  statusBox.className = "status";
+
+  statusBox.textContent = "";
+
+
+  try{
+
+    const response =
+    await fetch(
+      form.action,
+      {
+        method:"POST",
+
+        body:new FormData(form),
+
+        headers:{
+          "Accept":"application/json"
+        }
+      }
+    );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "Submission failed"
+      );
+
+    }
+
+
+    /* Clear the form */
+
+    form.reset();
+
+
+    /* Success message */
+
+    statusBox.className =
+    "status success";
+
+    statusBox.textContent =
+    "Your message has been sent successfully. " +
+    "Thank you for contacting Wrytole. " +
+    "We will review your message and respond " +
+    "when appropriate.";
+
+
+  }catch(error){
+
+
+    /* Error message */
+
+    statusBox.className =
+    "status error";
+
+    statusBox.textContent =
+    "We could not send your message right now. " +
+    "Please check your internet connection " +
+    "and try again.";
+
+  }
+
+
+  /* Restore button */
+
+  submitButton.disabled = false;
+
+  submitButton.textContent =
+  "Send Message";
+
+});
+
+</script>
+
+</body>
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Wry<span>tole</span></a>
+        <p>Discover. Learn. Connect.</p>
+        <p class="footer-description">
+          A modern technology platform bringing useful tech information, guides,
+          trending devices, deals, and business opportunities together.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="guides.html">Guides</a>
+        <a href="deals.html">Deals</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Business</h3>
+        <a href="advertising.html">Advertise With Us</a>
+        <a href="advertising.html">Advertising Packages</a>
+        <a href="donate.html">Donate &amp; Support</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="cookies.html">Cookie Policy</a>
+      </div>
+
+      <div class="footer-column footer-connect">
+        <h3>Connect</h3>
+        <a href="https://wa.me/256709539676" aria-label="WhatsApp">WhatsApp</a>
+        <a href="https://t.me/tecub1" aria-label="Telegram">Telegram</a>
+        <a href="https://www.instagram.com/meddisonofficial?igsi=eDc5djh6bGQ4cXZ0" aria-label="Instagram">Instagram</a>
+        <a href="wrytole2@gmail.com">Email Us</a>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <strong>Disclaimer:</strong>
+      Product information, prices, availability, and third-party offers may
+      change. Please verify details with the relevant provider before making
+      a purchase or payment.
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Wrytole. All rights reserved.</p>
+      <p>Technology • Business • Digital Opportunities</p>
+      <button type="button" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        Back to top ↑
+      </button>
+    </div>
+  </div>
+</footer>
+
+<style>
+.site-footer{
+  margin-top:70px;
+  background:#040b14;
+  border-top:1px solid rgba(255,255,255,.10);
+  color:#eef6ff;
+}
+.footer-wrap{
+  width:min(1150px,92%);
+  margin:auto;
+  padding:52px 0 22px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr repeat(4,1fr);
+  gap:34px;
+}
+.footer-logo{
+  color:#fff;
+  text-decoration:none;
+  font-size:1.35rem;
+  font-weight:950;
+}
+.footer-logo span{color:#ff3b30}
+.footer-brand p{
+  color:#aabbd0;
+  line-height:1.6;
+  margin:9px 0;
+}
+.footer-description{
+  max-width:340px;
+  font-size:.88rem;
+}
+.footer-column h3{
+  margin:0 0 13px;
+  font-size:.95rem;
+}
+.footer-column a{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  color:#9fb0c5;
+  text-decoration:none;
+  font-size:.86rem;
+  margin:8px 0;
+  transition:.2s;
+}
+.footer-column a:hover{
+  color:#fff;
+  transform:translateX(3px);
+}
+.footer-disclaimer{
+  margin-top:38px;
+  padding:16px 18px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  background:rgba(255,255,255,.025);
+  color:#8fa1b7;
+  font-size:.78rem;
+  line-height:1.65;
+}
+.footer-disclaimer strong{color:#dce7f3}
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.08);
+  margin-top:26px;
+  padding-top:20px;
+  color:#71839a;
+  font-size:.76rem;
+}
+.footer-bottom p{margin:0}
+.back-to-top{
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  color:#dce7f3;
+  padding:9px 13px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s;
+}
+.back-to-top:hover{
+  background:rgba(255,255,255,.09);
+  transform:translateY(-2px);
+}
+@media(max-width:900px){
+  .footer-grid{grid-template-columns:2fr 1fr 1fr}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px 20px}
+  .footer-brand{grid-column:1/-1}
+  .footer-bottom{align-items:flex-start;flex-direction:column}
+}
+</style>
+</html>

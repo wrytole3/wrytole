@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrytole | Technology Insights & Digital Business Hub</title>
+    
+    <!-- Google Fonts CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-canvas: #0a0c10;
+            --bg-surface: #12161f;
+            --bg-surface-elevated: #1a202c;
+            --primary-accent: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.25);
+            --emerald-accent: #10b981;
+            --text-heading: #f8fafc;
+            --text-body: #94a3b8;
+            --text-muted: #64748b;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-focus: rgba(59, 130, 246, 0.5);
+            --max-width: 1280px;
+            --font-main: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            --font-display: 'Space Grotesk', -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-canvas);
+            color: var(--text-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        /* Cookie Overlay Modal (Client-Side Storage) */
+        .cookie-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 12, 16, 0.88);
+            backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 1;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .cookie-overlay.accepted {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .cookie-card {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-focus);
+            border-radius: 20px;
+            max-width: 520px;
+            width: 100%;
+            padding: 32px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px var(--primary-glow);
+            text-align: left;
+        }
+
+        .cookie-card h3 {
+            font-family: var(--font-display);
+            color: var(--text-heading);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .cookie-card p {
+            font-size: 0.925rem;
+            color: var(--text-body);
+            margin-bottom: 24px;
+        }
+
+        .cookie-card p a {
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+
+        .cookie-card p a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-cookie-accept {
+            width: 100%;
+            background: var(--primary-accent);
+            color: #ffffff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-cookie-accept:hover {
+            background: #2563eb;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        /* Responsive Navigation Header */
+        header.site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 12, 16, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-logo span {
+            color: var(--primary-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-body);
+            text-decoration: none;
+            font-size: 0.925rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-heading);
+        }
+
+        /* Dedicated Nav Button for Mobile Toggle */
+        .nav-toggle-btn {
+            display: none;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-heading);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        /* Mobile Dropdown Menu */
+        .mobile-menu {
+            display: none;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 20px 24px;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .mobile-menu a {
+            color: var(--text-heading);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Hero Layout */
+        .hero-section {
+            max-width: var(--max-width);
+            margin: 60px auto 80px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            color: var(--text-heading);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--text-body);
+            margin-bottom: 32px;
+            max-width: 560px;
+        }
+
+        .hero-card-display {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 32px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--emerald-accent);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero-card-display h3 {
+            font-family: var(--font-display);
+            color: var(--text-heading);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .hero-card-display p {
+            font-size: 0.925rem;
+            color: var(--text-body);
+        }
+
+        /* Information Grid Section */
+        .grid-section {
+            max-width: var(--max-width);
+            margin: 0 auto 80px auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .info-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.2s ease;
+        }
+
+        .info-card:hover {
+            border-color: var(--border-focus);
+            transform: translateY(-4px);
+        }
+
+        .info-card h4 {
+            color: var(--text-heading);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            color: var(--text-body);
+            font-size: 0.925rem;
+            line-height: 1.6;
+        }
+
+        /* Advertising Information Section */
+        .ad-banner-section {
+            background: linear-gradient(135deg, var(--bg-surface-elevated) 0%, var(--bg-surface) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .ad-banner-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--text-heading);
+            margin-bottom: 12px;
+        }
+
+        .ad-banner-section p {
+            color: var(--text-body);
+            max-width: 700px;
+            margin-bottom: 16px;
+        }
+
+        /* Universal Device Media Queries */
+        @media (max-width: 900px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                margin-top: 30px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .nav-toggle-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .nav-container {
+                padding: 0 16px;
+            }
+            .grid-section {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Access Confirmation Modal -->
+    <div class="cookie-overlay" id="cookieOverlay">
+        <div class="cookie-card">
+            <h3>🔒 Terms & Access Confirmation</h3>
+            <p>Welcome to <strong>Wrytole</strong>. Before exploring our tech guides, analysis, and promotional insights, please confirm your acceptance of our site guidelines. Review our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="cookies-policy.html" target="_blank">Cookies Policy</a> for details.</p>
+            <button class="btn-cookie-accept" id="acceptCookiesBtn">Accept &amp; Continue</button>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">Wrytole<span>.</span></a>
+            
+            <!-- Desktop Links -->
+            <ul class="nav-links">
+                
+                <li><a href="guides.html">Digital Guides</a></li>
+                <li><a href="advertising.html">Advertise with us</a></li>
+                <li><a href="donation.html">Support us</a></li>
+                <li><a href="contact.html">contact us</a></li>
+            </ul>
+
+            <!-- Dedicated Nav Toggle Button for Mobile/Tablet -->
+            <button class="nav-toggle-btn" id="menuToggleBtn" aria-label="Toggle Navigation">
+                <nav>Menu ☰</nav>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                
+                <li><a href="guides.html" class="mobile-link">Digital Guides</a></li>
+                <li><a href="advertising.html" class="mobile-link">Advertise with us</a></li>
+                <li><a href="donation.html">Support us</a></li>
+                <li><a href="contact.html">contact us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Insights into <span>Modern Tech</span> &amp; Business Growth.</h1>
+                <p>Wrytole delivers reliable analysis on trending digital platforms, emerging software standards, and advertising frameworks designed for modern entrepreneurs.</p>
+            </div>
+            
+            <div class="hero-card-display">
+                <span class="badge">Platform Scope</span>
+                <h3>Digital Ecosystems &amp; Visibility</h3>
+                <p>Learn how businesses scale their web presence, manage customer inquiries, and build lasting digital brand visibility across global markets.</p>
+            </div>
+        </section>
+
+        <!-- Information Hub Section -->
+        <section class="grid-section" id="trends">
+            <div class="section-header">
+                <h2>Emerging Technology Insights</h2>
+                <p>Explore core updates on modern technology platforms and digital strategy.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="info-card">
+                    <span class="badge">Architecture</span>
+                    <h4>Serverless &amp; Cloud Deployment</h4>
+                    <p>Understanding lightweight deployment workflows, modern database connections, and how static sites achieve high availability globally.</p>
+                </div>
+
+                <div class="info-card">
+                    <span class="badge">Analytics</span>
+                    <h4>Lead Capture &amp; Forms Processing</h4>
+                    <p>Best practices for managing user contact information, processing feedback forms securely, and maintaining data privacy compliance.</p>
+                </div>
+
+                <div class="info-card" id="guides">
+                    <span class="badge">Strategy</span>
+                    <h4>Merchant Payment Integration</h4>
+                    <p>Overview of modern payment gateway standards, merchant transaction routing, and secure checkout workflows for digital platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advertising Information Banner -->
+        <section class="grid-section" id="advertising">
+            <div class="ad-banner-section">
+                <h3>Business &amp; Entrepreneurship Advertising</h3>
+                <p>Wrytole offers structured advertising placements and promotional insights for companies seeking to expand their online footprint and reach prospective clients.</p>
+                <p>For ad placement guidelines or collaboration details, contact: <strong>wrytole3@gmail.com</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Interactive Navigation & Confirmation Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Client-Side Cookie Confirmation (No Localhost Required)
+            const overlay = document.getElementById('cookieOverlay');
+            const acceptBtn = document.getElementById('acceptCookiesBtn');
+
+            if (localStorage.getItem('wrytole_access_confirmed') === 'true') {
+                overlay.classList.add('accepted');
+            }
+
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('wrytole_access_confirmed', 'true');
+                overlay.classList.add('accepted');
+            });
+
+            // Mobile Menu Toggle Logic
+            const menuToggleBtn = document.getElementById('menuToggleBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            menuToggleBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('open');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('open');
+                });
+            });
+        });
+    </script>
+</body>
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Wry<span>tole</span></a>
+        <p>Discover. Learn. Connect.</p>
+        <p class="footer-description">
+          A modern technology platform bringing useful tech information, guides,
+          trending devices, deals, and business opportunities together.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="guides.html">Guides</a>
+        <a href="deals.html">Deals</a>
+    
+      </div>
+
+      <div class="footer-column">
+        <h3>Business</h3>
+        <a href="advertising.html">Advertise With Us</a>
+        <a href="advertising.html">Advertising Packages</a>
+        <a href="donate.html">Donate &amp; Support</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="cookies.html">Cookie Policy</a>
+      </div>
+
+      <div class="footer-column footer-connect">
+        <h3>Connect</h3>
+        <a href="https://wa.me/256709539676" aria-label="WhatsApp">WhatsApp</a>
+        <a href="https://t.me/tecub1">Telegram</a>
+        <a href="https://www.instagram.com/meddisonofficial?igsi=eDc5djh6bGQ4cXZ0" aria-label="Instagram">Instagram</a>
+        <a href="Wrytole3@gmail.com">Email Us</a>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <strong>Disclaimer:</strong>
+      Product information, prices, availability, and third-party offers may
+      change. Please verify details with the relevant provider before making
+      a purchase or payment.
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Wrytole. All rights reserved.</p>
+      <p>Technology • Business • Digital Opportunities</p>
+      <button type="button" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        Back to top ↑
+      </button>
+    </div>
+  </div>
+</footer>
+
+<style>
+.site-footer{
+  margin-top:70px;
+  background:#040b14;
+  border-top:1px solid rgba(255,255,255,.10);
+  color:#eef6ff;
+}
+.footer-wrap{
+  width:min(1150px,92%);
+  margin:auto;
+  padding:52px 0 22px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr repeat(4,1fr);
+  gap:34px;
+}
+.footer-logo{
+  color:#fff;
+  text-decoration:none;
+  font-size:1.35rem;
+  font-weight:950;
+}
+.footer-logo span{color:#ff3b30}
+.footer-brand p{
+  color:#aabbd0;
+  line-height:1.6;
+  margin:9px 0;
+}
+.footer-description{
+  max-width:340px;
+  font-size:.88rem;
+}
+.footer-column h3{
+  margin:0 0 13px;
+  font-size:.95rem;
+}
+.footer-column a{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  color:#9fb0c5;
+  text-decoration:none;
+  font-size:.86rem;
+  margin:8px 0;
+  transition:.2s;
+}
+.footer-column a:hover{
+  color:#fff;
+  transform:translateX(3px);
+}
+.footer-disclaimer{
+  margin-top:38px;
+  padding:16px 18px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  background:rgba(255,255,255,.025);
+  color:#8fa1b7;
+  font-size:.78rem;
+  line-height:1.65;
+}
+.footer-disclaimer strong{color:#dce7f3}
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.08);
+  margin-top:26px;
+  padding-top:20px;
+  color:#71839a;
+  font-size:.76rem;
+}
+.footer-bottom p{margin:0}
+.back-to-top{
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  color:#dce7f3;
+  padding:9px 13px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s;
+}
+.back-to-top:hover{
+  background:rgba(255,255,255,.09);
+  transform:translateY(-2px);
+}
+@media(max-width:900px){
+  .footer-grid{grid-template-columns:2fr 1fr 1fr}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px 20px}
+  .footer-brand{grid-column:1/-1}
+  .footer-bottom{align-items:flex-start;flex-direction:column}
+}
+</style>
+</html>
