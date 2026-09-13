@@ -1,194 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-adsense-account" content="ca-pub-6920341232732247">
-<meta name="description" content="Learn about Wrytole, our mission, technology content, guides, deals and opportunities for businesses.">
-<title>About Us | Wrytole</title>
-<style>
-:root{--bg:#07111f;--card:#0d1b2d;--text:#f4f8ff;--muted:#aabbd0;--a:#ff3b30;--a2:#ff8a65;--line:rgba(255,255,255,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 10% 5%,rgba(255,59,48,.14),transparent 28%),radial-gradient(circle at 90% 15%,rgba(0,156,255,.10),transparent 25%),var(--bg)}
-.wrap{width:min(1120px,92%);margin:auto}
-header{padding:20px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(4,11,20,.82);backdrop-filter:blur(14px)}
-nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-size:1.2rem;font-weight:950}.brand span{color:var(--a)}
-.navlinks{display:flex;gap:6px;flex-wrap:wrap}
-.navlinks a{color:var(--muted);text-decoration:none;padding:9px 11px;border-radius:10px;font-size:.88rem;transition:.2s}
-.navlinks a:hover,.navlinks a.active{color:#fff;background:rgba(255,255,255,.07)}
-.hero{text-align:center;padding:75px 0 55px;animation:rise .7s ease}
-.pill{display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(255,59,48,.09);border:1px solid rgba(255,122,89,.30);color:#ffb2a6;font-size:.78rem;font-weight:850}
-h1{font-size:clamp(2.5rem,7vw,5rem);line-height:.96;letter-spacing:-2px;margin:18px 0}
-.hero p{max-width:760px;margin:auto;color:var(--muted);font-size:1.06rem;line-height:1.75}
-section{padding:25px 0 55px}
-.section-head{text-align:center;max-width:720px;margin:0 auto 28px}.section-head h2{font-size:2rem;margin:0 0 10px}.section-head p{color:var(--muted);line-height:1.65}
-.about-grid,.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.card{background:linear-gradient(145deg,rgba(16,36,59,.95),rgba(9,23,39,.95));border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 20px 55px rgba(0,0,0,.25);transition:.25s}
-.card:hover{transform:translateY(-5px);border-color:rgba(255,122,89,.42)}
-.card h3{margin:0 0 10px;font-size:1.18rem}.card p{margin:0;color:var(--muted);line-height:1.7}.icon{font-size:2rem;margin-bottom:14px}
-.offer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.offer-grid .card{padding:23px}
-.why-grid{grid-template-columns:repeat(3,1fr)}
-.cta{padding:43px;border-radius:28px;text-align:center;background:linear-gradient(135deg,rgba(255,59,48,.15),rgba(255,138,101,.06));border:1px solid rgba(255,122,89,.25);box-shadow:0 20px 55px rgba(0,0,0,.25)}
-.cta h2{margin:0 0 10px;font-size:2rem}.cta p{color:var(--muted);max-width:650px;margin:0 auto 22px;line-height:1.7}
-.btn{display:inline-block;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--a),var(--a2));padding:13px 20px;border-radius:13px;font-weight:900;margin:5px;transition:.2s}.btn:hover{transform:translateY(-2px)}
-.site-footer{margin-top:20px;background:#040b14;border-top:1px solid var(--line)}
-.footer-wrap{width:min(1150px,92%);margin:auto;padding:52px 0 22px}
-.footer-grid{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:34px}
-.footer-logo{color:#fff;text-decoration:none;font-size:1.35rem;font-weight:950}.footer-logo span{color:var(--a)}
-.footer-brand p{color:var(--muted);line-height:1.6;margin:9px 0}.footer-description{max-width:340px;font-size:.88rem}
-.footer-column h3{margin:0 0 13px;font-size:.95rem}
-.footer-column a{display:block;width:max-content;max-width:100%;color:#9fb0c5;text-decoration:none;font-size:.86rem;margin:8px 0;transition:.2s}
-.footer-column a:hover{color:#fff;transform:translateX(3px)}
-.footer-disclaimer{margin-top:38px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.025);color:#8fa1b7;font-size:.78rem;line-height:1.65}
-.footer-disclaimer strong{color:#dce7f3}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.08);margin-top:26px;padding-top:20px;color:#71839a;font-size:.76rem}
-.footer-bottom p{margin:0}
-.back-to-top{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);color:#dce7f3;padding:9px 13px;border-radius:10px;cursor:pointer;transition:.2s}
-.back-to-top:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
-@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-@media(max-width:900px){.offer-grid{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:2fr 1fr 1fr}}
-@media(max-width:650px){.navlinks{display:none}.about-grid,.offer-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}h1{letter-spacing:-1px}}
-@media(max-width:420px){.footer-grid{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Replace the URL below if your final profile page uses a different path. -->
+  <link rel="canonical" href="https://wrytole3.github.io/wrytole/about.html">
+
+  <title>Kagumya Meddy | Creator & Developer of Wrytole</title>
+  <meta name="description" content="Kagumya Meddy is the creator and developer behind Wrytole, a technology, digital business and opportunities platform.">
+  <meta name="author" content="Kagumya Meddy">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Google/social sharing -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Kagumya Meddy | Creator & Developer of Wrytole">
+  <meta property="og:description" content="Meet Kagumya Meddy, the creator and developer behind Wrytole.">
+  <meta property="og:url" content="https://wrytole3.github.io/wrytole/about.html">
+  <meta property="og:image" content="https://wrytole3.github.io/wrytole/kagumya-meddy.jpg">
+  <meta property="og:site_name" content="Wrytole">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kagumya Meddy | Creator & Developer of Wrytole">
+  <meta name="twitter:description" content="Meet Kagumya Meddy, the creator and developer behind Wrytole.">
+  <meta name="twitter:image" content="https://wrytole3.github.io/wrytole/kagumya-meddy.jpg">
+
+  <!-- Structured data helps search engines understand that this is a person profile. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kagumya Meddy",
+    "url": "https://wrytole3.github.io/wrytole/about.html",
+    "image": "https://wrytole3.github.io/wrytole/kagumya-meddy.jpg",
+    "jobTitle": "Creator & Developer of Wrytole",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Wrytole",
+      "url": "https://wrytole3.github.io/wrytole/"
+    },
+    "sameAs": []
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --card: #0d1b2e;
+      --card-2: #10243b;
+      --text: #f5f7fb;
+      --muted: #aab7c8;
+      --accent: #5eead4;
+      --accent-2: #38bdf8;
+      --line: rgba(255,255,255,.10);
+      --max: 1050px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(56,189,248,.16), transparent 32%),
+        radial-gradient(circle at 90% 10%, rgba(94,234,212,.12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(92%, var(--max)); margin: auto; }
+
+    nav {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7,17,31,.72);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    header {
+      padding: 85px 0 55px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .photo {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(94,234,212,.65);
+      background: var(--card-2);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 750;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.02;
+      margin: 10px 0 18px;
+      letter-spacing: -.055em;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 1.15rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 17px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #06211e;
+      border-color: transparent;
+      font-weight: 750;
+    }
+
+    section {
+      padding: 45px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      letter-spacing: -.03em;
+      margin: 0 0 15px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 780px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(16,36,59,.94), rgba(13,27,46,.92));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .card h3 { margin-top: 0; }
+    .card p { color: var(--muted); margin-bottom: 0; }
+
+    .highlight {
+      border-left: 3px solid var(--accent);
+      padding: 10px 0 10px 20px;
+      margin-top: 25px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 35px 0 50px;
+      color: var(--muted);
+      font-size: .92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .photo { margin: auto; }
+      .lead { margin-inline: auto; }
+      .buttons { justify-content: center; }
+      .grid { grid-template-columns: 1fr; }
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
 </head>
+
 <body>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="./">Wrytole<span>.</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<header>
-<div class="wrap">
-<nav>
-<div class="brand">Wry<span>tole</span></div>
-<div class="navlinks">
-<a href="index.html">Home</a>
-<a href="about.html" class="active">About</a>
-<a href="guides.html">Guides</a>
-<a href="deals.html">Deals</a>
-<a href="advertising.html">Advertise</a>
-<a href="donate.html">Donate</a>
-<a href="contact.html">Contact</a>
-</div>
-</nav>
-</div>
-</header>
+  <main>
+    <header>
+      <div class="wrap hero">
+        <!-- Upload your own photo to the same GitHub folder and name it:
+             kagumya-meddy.jpg
+             You can change the filename in this line if you prefer another name. -->
+        <img
+          class="photo"
+          src="./kagumya-meddy.jpg"
+          alt="Portrait of Kagumya Meddy"
+          width="190"
+          height="190"
+          loading="eager"
+        >
 
-<main class="wrap">
+        <div>
+          <div class="eyebrow">Creator • Developer • Digital Builder</div>
+          <h1>Kagumya Meddy</h1>
+          <p class="lead">
+            Creator and developer behind Wrytole — a technology and digital business
+            platform built to bring useful technology insights, digital guides,
+            opportunities and practical online resources together.
+          </p>
 
-<section class="hero">
-<span class="pill">ABOUT OUR PLATFORM</span>
-<h1>Technology made easier to discover.</h1>
-<p>Wrytole is a modern digital platform bringing useful technology information, practical guides, trending devices, deals and business opportunities together in one place.</p>
-</section>
+          <div class="buttons">
+            <a class="button primary" href="index.html">Explore Wrytole</a>
+            <a class="button" href="wrytole3@gmail.com">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<section>
-<div class="about-grid">
-<article class="card">
-<div class="icon">🌍</div>
-<h3>Who We Are</h3>
-<p>We are a technology-focused platform created to make useful digital information, discoveries and opportunities easier for visitors to find, explore and understand.</p>
-</article>
-<article class="card">
-<div class="icon">🚀</div>
-<h3>Our Mission</h3>
-<p>Our mission is to connect people with useful technology information while creating opportunities for businesses, creators and digital communities to grow.</p>
-</article>
-</div>
-</section>
+    <section>
+      <div class="wrap">
+        <h2>About Kagumya Meddy</h2>
+        <p class="section-intro">
+          I am Kagumya Meddy, the person behind Wrytole. I created Wrytole as a
+          digital platform focused on technology, online business, digital opportunities,
+          useful guides and practical information for people navigating the modern web.
+        </p>
 
-<section>
-<div class="section-head">
-<h2>What We Offer</h2>
-<p>Different parts of Wrytole are designed to give visitors useful information and opportunities.</p>
-</div>
-<div class="offer-grid">
-<article class="card"><div class="icon">💻</div><h3>Technology</h3><p>Discover technology news, devices, trends and digital developments.</p></article>
-<article class="card"><div class="icon">📚</div><h3>Guides</h3><p>Find practical guides and useful information to help you understand and use technology.</p></article>
-<article class="card"><div class="icon">🔥</div><h3>Deals</h3><p>Explore trending and popular technology products and devices worth watching.</p></article>
-<article class="card"><div class="icon">📢</div><h3>Business Promotion</h3><p>Businesses can promote their products and services and reach people interested in technology.</p></article>
-</div>
-</section>
+        <p class="highlight">
+          This page is my professional profile and a central place to learn about
+          the person who built and maintains the Wrytole platform.
+        </p>
+      </div>
+    </section>
 
-<section>
-<div class="section-head">
-<h2>Why Choose Wrytole?</h2>
-<p>We want the platform to be useful, simple, accessible and valuable to both visitors and businesses.</p>
-</div>
-<div class="why-grid">
-<article class="card"><div class="icon">⚡</div><h3>Fresh Content</h3><p>We aim to keep technology information and featured content current and relevant.</p></article>
-<article class="card"><div class="icon">📱</div><h3>Mobile Friendly</h3><p>The experience is designed to work comfortably across phones, tablets and computers.</p></article>
-<article class="card"><div class="icon">🤝</div><h3>Business Opportunities</h3><p>Businesses can promote their brands and connect with visitors through advertising opportunities.</p></article>
-</div>
-</section>
+    <section>
+      <div class="wrap">
+        <h2>What I build</h2>
 
-<section>
-<div class="cta">
-<h2>Be part of Wrytole</h2>
-<p>Explore our content, discover useful technology, support the platform or put your business in front of our audience.</p>
-<a class="btn" href="deals.html">Explore Deals</a>
-<a class="btn" href="advertising.html">Advertise With Us</a>
-<a class="btn" href="donate.html">Support Us</a>
-</div>
-</section>
+        <div class="grid">
+          <article class="card">
+            <h3>Digital Platforms</h3>
+            <p>
+              Building and improving web experiences that organize useful information
+              and make it easier for people to discover digital resources.
+            </p>
+          </article>
 
-</main>
+          <article class="card">
+            <h3>Technology & Web</h3>
+            <p>
+              Exploring modern web technologies, online platforms, deployment,
+              digital tools and practical ways technology can solve everyday problems.
+            </p>
+          </article>
 
-<footer class="site-footer">
-<div class="footer-wrap">
-<div class="footer-grid">
+          <article class="card">
+            <h3>Digital Opportunities</h3>
+            <p>
+              Creating and sharing resources around online business, digital growth,
+              useful services and opportunities on the internet.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="footer-brand">
-<a href="index.html" class="footer-logo">Wry<span>tole</span></a>
-<p>Discover. Learn. Connect.</p>
-<p class="footer-description">A modern technology platform bringing useful tech information, guides, trending devices, deals, and business opportunities together.</p>
-</div>
+    <section>
+      <div class="wrap">
+        <h2>About Wrytole</h2>
+        <p class="section-intro">
+          Wrytole is a technology and digital business hub covering technology insights,
+          digital guides, trending devices, deals and digital opportunities.
+          The platform is designed to help visitors discover, learn and connect with
+          useful information in one place.
+        </p>
 
-<div class="footer-column">
-<h3>Explore</h3>
-<a href="index.html">Home</a>
-<a href="about.html">About Us</a>
-<a href="guides.html">Guides</a>
-<a href="deals.html">Deals</a>
-<a href="technology.html">Technology</a>
-</div>
+        <div class="buttons">
+          <a class="button primary" href="./">Visit Wrytole</a>
+        </div>
+      </div>
+    </section>
 
-<div class="footer-column">
-<h3>Business</h3>
-<a href="advertising.html">Advertise With Us</a>
-<a href="advertising.html">Advertising Packages</a>
-<a href="donate.html">Donate &amp; Support</a>
-<a href="contact.html">Contact Us</a>
-</div>
+    <section>
+      <div class="wrap">
+        <h2>Connect</h2>
+        <p class="section-intro">
+          For professional enquiries, collaborations, feedback or questions about
+          Wrytole, use the contact details below.
+        </p>
 
-<div class="footer-column">
-<h3>Legal</h3>
-<a href="privacy.html">Privacy Policy</a>
-<a href="terms.html">Terms &amp; Conditions</a>
-<a href="disclaimer.html">Disclaimer</a>
-<a href="cookies.html">Cookie Policy</a>
-</div>
+        <div class="buttons">
+          <!-- Replace these placeholder links with your real profiles. -->
+          <a class="button" href="wrytole3@gmail.com">Email</a>
+          <a class="button" href="https://t.me/tecub1">Our telegram channel</a>
+          <a class="button" href="YOUR-GITHUB-URL">GitHub</a>
+          <a class="button" href="https://www.instagram.com/meddisonofficial?stkn=eDc5djh6bGQ4cXZ0">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<div class="footer-column">
-<h3>Connect</h3>
-<a href="https://wa.me/256709539676">WhatsApp</a>
-<a href="https://t.me/tecub1">Telegram</a>
-<a href="https://www.instagram.com/meddisonofficial?igsi=eDc5djh6bGQ4cXZ0">Instagram</a>
-<a href="Wrytole3@gmail.com">Email Us</a>
-</div>
-
-</div>
-
-<div class="footer-disclaimer">
-<strong>Disclaimer:</strong>
-Product information, prices, availability, and third-party offers may change.
-Please verify details with the relevant provider before making a purchase or payment.
-</div>
-
-<div class="footer-bottom">
-<p>© 2026 Wrytole. All rights reserved.</p>
-<p>Technology • Business • Digital Opportunities</p>
-<button type="button" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</button>
-</div>
-</div>
-</footer>
-
+  <footer>
+    <div class="wrap">
+      © 2026 Kagumya Meddy · Creator & Developer of Wrytole
+    </div>
+  </footer>
 </body>
 </html>
