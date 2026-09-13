@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrytole Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen">
+
+    <!-- Credentials Modal / Connection Check -->
+    <div id="configModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <div class="bg-slate-800 p-6 rounded-xl max-w-md w-full border border-slate-700 shadow-2xl">
+            <h2 class="text-xl font-bold mb-4 text-emerald-400"><i class="fa-solid fa-plug mr-2"></i>Connect to Wrytole Database</h2>
+            <p class="text-sm text-slate-400 mb-4">Enter your Supabase URL and Key from your Supabase Dashboard settings.</p>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Supabase URL</label>
+                    <input type="text" id="supaUrl" placeholder="https://xyz.supabase.co" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Supabase Anon Key</label>
+                    <input type="password" id="supaKey" placeholder="eyJhbGciOi..." class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <button onclick="saveConfig()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2 rounded transition">Connect Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Admin Container -->
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-slate-800 border-r border-slate-700 flex flex-col justify-between">
+            <div>
+                <div class="p-6 border-b border-slate-700 flex items-center gap-3">
+                    <div class="bg-emerald-500 text-slate-900 p-2 rounded-lg font-bold text-xl">W</div>
+                    <div>
+                        <h1 class="font-bold text-lg leading-none text-white">Wrytole</h1>
+                        <span class="text-xs text-emerald-400 font-medium">Control Panel</span>
+                    </div>
+                </div>
+                <nav class="p-4 space-y-1">
+                    <button onclick="showTab('deals')" id="nav-deals" class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg bg-emerald-600 text-white">
+                        <i class="fa-solid fa-tags w-5"></i> Manage Deals & Products
+                    </button>
+                    <button onclick="showTab('settings')" id="nav-settings" class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-700 hover:text-white">
+                        <i class="fa-solid fa-sliders w-5"></i> Site Settings & Info
+                    </button>
+                </nav>
+            </div>
+            <div class="p-4 border-t border-slate-700">
+                <button onclick="resetConfig()" class="w-full text-xs text-rose-400 hover:text-rose-300 flex items-center justify-center gap-2 py-2">
+                    <i class="fa-solid fa-right-from-bracket"></i> Disconnect Database
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto bg-slate-900 p-8">
+
+            <!-- DEALS & PRODUCTS MANAGEMENT SECTION -->
+            <section id="tab-deals">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">Deals & Products</h2>
+                        <p class="text-sm text-slate-400">Add, edit, or remove deal offers displayed on your website.</p>
+                    </div>
+                    <button onclick="openProductModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> Upload New Product
+                    </button>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="text-slate-400">Loading deals...</div>
+                </div>
+            </section>
+
+            <!-- SITE SETTINGS SECTION -->
+            <section id="tab-settings" class="hidden">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-white">Website Global Settings</h2>
+                    <p class="text-sm text-slate-400">Update general text across Wrytole without touching site code.</p>
+                </div>
+
+                <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 max-w-2xl space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Homepage Hero Title</label>
+                        <input type="text" id="settingHeroTitle" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Contact Email Address</label>
+                        <input type="email" id="settingContactEmail" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <button onclick="saveSiteSettings()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2 rounded-lg text-sm transition">
+                        Save Site Changes
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Product Upload/Edit Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
+        <div class="bg-slate-800 p-6 rounded-xl max-w-lg w-full border border-slate-700 shadow-2xl">
+            <h3 id="modalTitle" class="text-lg font-bold mb-4 text-white">Upload New Deal / Product</h3>
+            <form id="productForm" onsubmit="handleProductSubmit(event)" class="space-y-4">
+                <input type="hidden" id="prodId">
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Product Title</label>
+                    <input type="text" id="prodTitle" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm text-white">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Deal Price ($)</label>
+                        <input type="text" id="prodPrice" required placeholder="$49" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Original Price ($)</label>
+                        <input type="text" id="prodOrigPrice" placeholder="$99" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm text-white">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Product Image URL</label>
+                    <input type="url" id="prodImage" required placeholder="https://images.unsplash.com/..." class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm text-white">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Affiliate / Target Link</label>
+                    <input type="url" id="prodLink" required placeholder="https://..." class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm text-white">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Description</label>
+                    <textarea id="prodDesc" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-sm text-white"></textarea>
+                </div>
+                <div class="flex justify-end gap-3 pt-2">
+                    <button type="button" onclick="closeProductModal()" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded text-sm text-slate-300">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded text-sm text-white font-medium">Save Deal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let db = null;
+
+        window.onload = () => {
+            const url = localStorage.getItem('wry_supa_url');
+            const key = localStorage.getItem('wry_supa_key');
+            if (url && key) {
+                initSupabase(url, key);
+                document.getElementById('configModal').classList.add('hidden');
+            }
+        };
+
+        function saveConfig() {
+            const url = document.getElementById('supaUrl').value.trim();
+            const key = document.getElementById('supaKey').value.trim();
+            if (url && key) {
+                localStorage.setItem('wry_supa_url', url);
+                localStorage.setItem('wry_supa_key', key);
+                initSupabase(url, key);
+                document.getElementById('configModal').classList.add('hidden');
+            }
+        }
+
+        function resetConfig() {
+            localStorage.clear();
+            location.reload();
+        }
+
+        function initSupabase(url, key) {
+            db = supabase.createClient(url, key);
+            fetchDeals();
+            fetchSettings();
+        }
+
+        async function fetchDeals() {
+            const { data, error } = await db.from('deals').select('*').order('created_at', { ascending: false });
+            const grid = document.getElementById('productsGrid');
+            if (error || !data.length) {
+                grid.innerHTML = `<div class="col-span-full bg-slate-800 p-8 rounded-xl border border-slate-700 text-center text-slate-400">No deals added yet. Click "Upload New Product" to get started!</div>`;
+                return;
+            }
+            grid.innerHTML = data.map(item => `
+                <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden flex flex-col justify-between">
+                    <img src="${item.image_url}" alt="${item.title}" class="h-40 w-full object-cover">
+                    <div class="p-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-white text-base leading-snug">${item.title}</h3>
+                                <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-2 py-1 rounded">${item.price}</span>
+                            </div>
+                            <p class="text-xs text-slate-400 line-clamp-2 mb-4">${item.description || ''}</p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-slate-700 pt-3">
+                            <a href="${item.affiliate_link}" target="_blank" class="text-xs text-emerald-400 hover:underline"><i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> View Link</a>
+                            <div class="flex gap-2">
+                                <button onclick="deleteDeal('${item.id}')" class="text-slate-400 hover:text-rose-400 text-xs p-1"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function fetchSettings() {
+            const { data } = await db.from('site_settings').select('*');
+            if (data) {
+                data.forEach(s => {
+                    if (s.key === 'hero_title') document.getElementById('settingHeroTitle').value = s.value;
+                    if (s.key === 'contact_email') document.getElementById('settingContactEmail').value = s.value;
+                });
+            }
+        }
+
+        async function handleProductSubmit(e) {
+            e.preventDefault();
+            const payload = {
+                title: document.getElementById('prodTitle').value,
+                price: document.getElementById('prodPrice').value,
+                original_price: document.getElementById('prodOrigPrice').value,
+                image_url: document.getElementById('prodImage').value,
+                affiliate_link: document.getElementById('prodLink').value,
+                description: document.getElementById('prodDesc').value
+            };
+            await db.from('deals').insert([payload]);
+            closeProductModal();
+            fetchDeals();
+        }
+
+        async function deleteDeal(id) {
+            if (confirm("Are you sure you want to delete this deal?")) {
+                await db.from('deals').delete().eq('id', id);
+                fetchDeals();
+            }
+        }
+
+        async function saveSiteSettings() {
+            const title = document.getElementById('settingHeroTitle').value;
+            const email = document.getElementById('settingContactEmail').value;
+            await db.from('site_settings').upsert([
+                { key: 'hero_title', value: title },
+                { key: 'contact_email', value: email }
+            ]);
+            alert('Settings updated successfully!');
+        }
+
+        function showTab(tab) {
+            document.getElementById('tab-deals').classList.toggle('hidden', tab !== 'deals');
+            document.getElementById('tab-settings').classList.toggle('hidden', tab !== 'settings');
+            document.getElementById('nav-deals').className = tab === 'deals' ? 'w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg bg-emerald-600 text-white' : 'w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-700 hover:text-white';
+            document.getElementById('nav-settings').className = tab === 'settings' ? 'w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg bg-emerald-600 text-white' : 'w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-700 hover:text-white';
+        }
+
+        function openProductModal() { document.getElementById('productModal').classList.remove('hidden'); document.getElementById('productModal').classList.add('flex'); }
+        function closeProductModal() { document.getElementById('productModal').classList.add('hidden'); document.getElementById('productModal').classList.remove('flex'); document.getElementById('productForm').reset(); }
+    </script>
+</body>
+</html>
