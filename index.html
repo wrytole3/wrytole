@@ -10,17 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Supabase JS Client (CDN Module) -->
-    <script type="module">
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-        
-        // TODO: Replace with your actual Supabase credentials
-        const SUPABASE_URL = 'https://tkqmjwdqnzajxsqlaxhg.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRrcW1qd2RxbnphanhzcWxheGhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzMzA4MTMsImV4cCI6MjEwNDkwNjgxM30.iJiulCE6Tj1VSorgWYiW-vYMMuOlPGkqL23VDM72o34';
-        
-        window.supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    </script>
-
     <style>
         :root {
             --bg-canvas: #0a0c10;
@@ -55,7 +44,7 @@
             padding-bottom: 60px;
         }
 
-        /* Cookie Overlay Modal */
+        /* Cookie Overlay Modal (Client-Side Storage) */
         .cookie-overlay {
             position: fixed;
             top: 0;
@@ -108,6 +97,10 @@
             text-decoration: none;
         }
 
+        .cookie-card p a:hover {
+            text-decoration: underline;
+        }
+
         .btn-cookie-accept {
             width: 100%;
             background: var(--primary-accent);
@@ -121,93 +114,10 @@
             transition: all 0.2s ease;
         }
 
-        /* Auth & APK Modals */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(10, 12, 16, 0.88);
-            backdrop-filter: blur(12px);
-            z-index: 9999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+        .btn-cookie-accept:hover {
+            background: #2563eb;
+            box-shadow: 0 0 15px var(--primary-glow);
         }
-
-        .modal-overlay.open { display: flex; }
-
-        .modal-card {
-            background: var(--bg-surface-elevated);
-            border: 1px solid var(--border-focus);
-            border-radius: 20px;
-            max-width: 480px;
-            width: 100%;
-            padding: 32px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .modal-card h3 {
-            font-family: var(--font-display);
-            color: var(--text-heading);
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-
-        .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; font-size: 0.85rem; color: var(--text-heading); margin-bottom: 6px; }
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            color: var(--text-heading);
-            font-family: var(--font-main);
-        }
-        .form-input:focus { outline: none; border-color: var(--primary-accent); }
-
-        .btn-submit {
-            width: 100%;
-            background: var(--primary-accent);
-            color: #ffffff;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 8px;
-        }
-
-        /* Toast Notifications */
-        .toast-notification {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: var(--bg-surface-elevated);
-            border: 1px solid var(--emerald-accent);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            border-radius: 12px;
-            padding: 16px 20px;
-            z-index: 10000;
-            display: none;
-            max-width: 360px;
-        }
-        .toast-notification.active { display: block; }
 
         /* Responsive Navigation Header */
         header.site-header {
@@ -238,12 +148,14 @@
             letter-spacing: -0.5px;
         }
 
-        .brand-logo span { color: var(--primary-accent); }
+        .brand-logo span {
+            color: var(--primary-accent);
+        }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
             list-style: none;
         }
 
@@ -255,25 +167,11 @@
             transition: color 0.2s ease;
         }
 
-        .nav-links a:hover { color: var(--text-heading); }
-
-        .btn-auth-nav {
-            background: var(--primary-accent);
-            color: #fff !important;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
+        .nav-links a:hover {
+            color: var(--text-heading);
         }
 
-        .btn-apk-nav {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--emerald-accent) !important;
-            border: 1px solid var(--emerald-accent);
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
+        /* Dedicated Nav Button for Mobile Toggle */
         .nav-toggle-btn {
             display: none;
             background: var(--bg-surface-elevated);
@@ -281,9 +179,13 @@
             color: var(--text-heading);
             padding: 8px 14px;
             border-radius: 8px;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 0.875rem;
             cursor: pointer;
         }
 
+        /* Mobile Dropdown Menu */
         .mobile-menu {
             display: none;
             background: var(--bg-surface);
@@ -291,9 +193,25 @@
             padding: 20px 24px;
         }
 
-        .mobile-menu.open { display: block; }
+        .mobile-menu.open {
+            display: block;
+        }
 
-        /* Content Sections */
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .mobile-menu a {
+            color: var(--text-heading);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Hero Layout */
         .hero-section {
             max-width: var(--max-width);
             margin: 60px auto 80px auto;
@@ -343,13 +261,43 @@
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-bottom: 16px;
         }
 
+        .hero-card-display h3 {
+            font-family: var(--font-display);
+            color: var(--text-heading);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .hero-card-display p {
+            font-size: 0.925rem;
+            color: var(--text-body);
+        }
+
+        /* Information Grid Section */
         .grid-section {
             max-width: var(--max-width);
             margin: 0 auto 80px auto;
             padding: 0 24px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
         }
 
         .cards-grid {
@@ -363,8 +311,27 @@
             border: 1px solid var(--border-subtle);
             border-radius: 16px;
             padding: 28px;
+            transition: all 0.2s ease;
         }
 
+        .info-card:hover {
+            border-color: var(--border-focus);
+            transform: translateY(-4px);
+        }
+
+        .info-card h4 {
+            color: var(--text-heading);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            color: var(--text-body);
+            font-size: 0.925rem;
+            line-height: 1.6;
+        }
+
+        /* Advertising Information Section */
         .ad-banner-section {
             background: linear-gradient(135deg, var(--bg-surface-elevated) 0%, var(--bg-surface) 100%);
             border: 1px solid var(--border-subtle);
@@ -372,11 +339,46 @@
             padding: 40px;
         }
 
+        .ad-banner-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--text-heading);
+            margin-bottom: 12px;
+        }
+
+        .ad-banner-section p {
+            color: var(--text-body);
+            max-width: 700px;
+            margin-bottom: 16px;
+        }
+
+        /* Universal Device Media Queries */
         @media (max-width: 900px) {
-            .hero-section { grid-template-columns: 1fr; margin-top: 30px; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .nav-toggle-btn { display: block; }
+            .hero-section {
+                grid-template-columns: 1fr;
+                margin-top: 30px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .nav-toggle-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .nav-container {
+                padding: 0 16px;
+            }
+            .grid-section {
+                padding: 0 16px;
+            }
         }
     </style>
 </head>
@@ -391,333 +393,186 @@
         </div>
     </div>
 
-    <!-- Notification Toast -->
-    <div id="toast" class="toast-notification">
-        <strong id="toast-title" style="color:var(--text-heading); display:block;">Live Notification</strong>
-        <span id="toast-body" style="font-size:0.875rem;">Site content updated.</span>
-    </div>
-
-    <!-- Auth Modal (Account Creation & Sign In) -->
-    <div class="modal-overlay" id="authModal">
-        <div class="modal-card">
-            <button class="close-modal" id="closeAuthModal">&times;</button>
-            <h3 id="authTitle">Sign In to Wrytole</h3>
-            <form id="authForm">
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="authEmail" class="form-input" required placeholder="name@domain.com">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="authPassword" class="form-input" required placeholder="••••••••">
-                </div>
-                <button type="submit" class="btn-submit" id="authSubmitBtn">Sign In</button>
-            </form>
-            <p style="margin-top:16px; font-size:0.85rem; text-align:center;">
-                <a href="#" id="toggleAuthMode" style="color:var(--primary-accent); text-decoration:none;">Need an account? Sign Up</a>
-            </p>
-        </div>
-    </div>
-
-    <!-- APK Download & Installation Modal -->
-    <div class="modal-overlay" id="apkModal">
-        <div class="modal-card">
-            <button class="close-modal" id="closeApkModal">&times;</button>
-            <h3>📱 Download Wrytole App</h3>
-            <p style="font-size:0.9rem; margin-bottom:16px;">Get the official Wrytole Android app directly on your phone.</p>
-            
-            <div style="background:var(--bg-surface); padding:16px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:16px; font-size:0.825rem;">
-                <strong>Installation Guide (Bypass Block):</strong>
-                <ol style="margin-left:18px; margin-top:8px;">
-                    <li>Tap <strong>Download APK File</strong> below.</li>
-                    <li>Open your browser Downloads and tap the <code>.apk</code> file.</li>
-                    <li>If prompted with <em>"Blocked by Play Protect"</em>, tap <strong>Details</strong> $\rightarrow$ <strong>Install anyway</strong>.</li>
-                    <li>If prompted with <em>"Install unknown apps"</em>, enable <strong>Allow from this source</strong>.</li>
-                </ol>
-            </div>
-
-            <!-- Place your apk file in an 'app' directory or repo root -->
-            <a href="wrytole.apk" download id="downloadApkBtn" class="btn-submit" style="display:block; text-align:center; text-decoration:none;">Download APK File</a>
-        </div>
-    </div>
-
     <!-- Main Navigation Header -->
     <header class="site-header">
         <div class="nav-container">
             <a href="index.html" class="brand-logo">Wrytole<span>.</span></a>
             
+            <!-- Desktop Links -->
             <ul class="nav-links">
+                
                 <li><a href="guides.html">Digital Guides</a></li>
                 <li><a href="advertising.html">Advertise with us</a></li>
                 <li><a href="donation.html">Support us</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-                <li><a href="#" id="openApkBtnNav" class="btn-apk-nav">📲 Get App (.APK)</a></li>
-                <li><a href="#" id="openAuthBtnNav" class="btn-auth-nav">Sign In</a></li>
+                <li><a href="contact.html">contact us</a></li>
             </ul>
 
-            <button class="nav-toggle-btn" id="menuToggleBtn">Menu ☰</button>
+            <!-- Dedicated Nav Toggle Button for Mobile/Tablet -->
+            <button class="nav-toggle-btn" id="menuToggleBtn" aria-label="Toggle Navigation">
+                <nav>Menu ☰</nav>
+            </button>
         </div>
 
+        <!-- Mobile Dropdown Navigation -->
         <div class="mobile-menu" id="mobileMenu">
-            <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
-                <li><a href="guides.html">Digital Guides</a></li>
-                <li><a href="advertising.html">Advertise with us</a></li>
+            <ul>
+                
+                <li><a href="guides.html" class="mobile-link">Digital Guides</a></li>
+                <li><a href="advertising.html" class="mobile-link">Advertise with us</a></li>
                 <li><a href="donation.html">Support us</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-                <li><a href="#" id="openApkBtnMobile" style="color:var(--emerald-accent); text-decoration:none;">Download App (.APK)</a></li>
-                <li><a href="#" id="openAuthBtnMobile" style="color:var(--primary-accent); text-decoration:none;">Account Sign In / Up</a></li>
+                <li><a href="contact.html">contact us</a></li>
             </ul>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main>
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
                 <h1>Insights into <span>Modern Tech</span> &amp; Business Growth.</h1>
                 <p>Wrytole delivers reliable analysis on trending digital platforms, emerging software standards, and advertising frameworks designed for modern entrepreneurs.</p>
-                <button id="enablePushNotificationsBtn" class="btn-submit" style="width:auto; background:var(--emerald-accent); padding:10px 20px;">
-                    🔔 Enable Live Notifications
-                </button>
             </div>
             
             <div class="hero-card-display">
                 <span class="badge">Platform Scope</span>
-                <h3 style="color:var(--text-heading); font-family:var(--font-display); margin-bottom:12px;">Digital Ecosystems &amp; Visibility</h3>
+                <h3>Digital Ecosystems &amp; Visibility</h3>
                 <p>Learn how businesses scale their web presence, manage customer inquiries, and build lasting digital brand visibility across global markets.</p>
             </div>
         </section>
 
         <!-- Information Hub Section -->
         <section class="grid-section" id="trends">
-            <div style="margin-bottom:40px;">
-                <h2 style="font-family:var(--font-display); font-size:2.25rem; color:var(--text-heading);">Emerging Technology Insights</h2>
+            <div class="section-header">
+                <h2>Emerging Technology Insights</h2>
                 <p>Explore core updates on modern technology platforms and digital strategy.</p>
             </div>
             <div class="cards-grid">
                 <div class="info-card">
                     <span class="badge">Architecture</span>
-                    <h4 style="color:var(--text-heading); margin:12px 0;">Serverless &amp; Cloud Deployment</h4>
+                    <h4>Serverless &amp; Cloud Deployment</h4>
                     <p>Understanding lightweight deployment workflows, modern database connections, and how static sites achieve high availability globally.</p>
                 </div>
 
                 <div class="info-card">
                     <span class="badge">Analytics</span>
-                    <h4 style="color:var(--text-heading); margin:12px 0;">Lead Capture &amp; Forms Processing</h4>
+                    <h4>Lead Capture &amp; Forms Processing</h4>
                     <p>Best practices for managing user contact information, processing feedback forms securely, and maintaining data privacy compliance.</p>
                 </div>
 
                 <div class="info-card" id="guides">
                     <span class="badge">Strategy</span>
-                    <h4 style="color:var(--text-heading); margin:12px 0;">Merchant Payment Integration</h4>
+                    <h4>Merchant Payment Integration</h4>
                     <p>Overview of modern payment gateway standards, merchant transaction routing, and secure checkout workflows for digital platforms.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Advertising Section -->
+        <!-- Advertising Information Banner -->
         <section class="grid-section" id="advertising">
             <div class="ad-banner-section">
-                <h3 style="font-family:var(--font-display); color:var(--text-heading); font-size:1.75rem; margin-bottom:12px;">Business &amp; Entrepreneurship Advertising</h3>
-                <p style="margin-bottom:16px;">Wrytole offers structured advertising placements and promotional insights for companies seeking to expand their online footprint and reach prospective clients.</p>
+                <h3>Business &amp; Entrepreneurship Advertising</h3>
+                <p>Wrytole offers structured advertising placements and promotional insights for companies seeking to expand their online footprint and reach prospective clients.</p>
                 <p>For ad placement guidelines or collaboration details, contact: <strong>wrytole3@gmail.com</strong></p>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-      <div class="footer-wrap">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <a href="index.html" class="footer-logo">Wry<span>tole</span></a>
-            <p>Discover. Learn. Connect.</p>
-            <p class="footer-description">
-              A modern technology platform bringing useful tech information, guides,
-              trending devices, deals, and business opportunities together.
-            </p>
-          </div>
-
-          <div class="footer-column">
-            <h3>Explore</h3>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="guides.html">Guides</a>
-            <a href="deals.html">Deals</a>
-          </div>
-
-          <div class="footer-column">
-            <h3>Business</h3>
-            <a href="advertising.html">Advertise With Us</a>
-            <a href="advertising.html">Advertising Packages</a>
-            <a href="donate.html">Donate &amp; Support</a>
-            <a href="contact.html">Contact Us</a>
-          </div>
-
-          <div class="footer-column">
-            <h3>Legal</h3>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms &amp; Conditions</a>
-            <a href="disclaimer.html">Disclaimer</a>
-            <a href="cookies.html">Cookie Policy</a>
-          </div>
-
-          <div class="footer-column footer-connect">
-            <h3>Connect</h3>
-            <a href="https://wa.me/256709539676" aria-label="WhatsApp">WhatsApp</a>
-            <a href="https://t.me/tecub1">Telegram</a>
-            <a href="https://www.instagram.com/meddisonofficial?igsi=eDc5djh6bGQ4cXZ0" aria-label="Instagram">Instagram</a>
-            <a href="mailto:wrytole3@gmail.com">Email Us</a>
-          </div>
-        </div>
-
-        <div class="footer-disclaimer">
-          <strong>Disclaimer:</strong>
-          Product information, prices, availability, and third-party offers may
-          change. Please verify details with the relevant provider before making
-          a purchase or payment.
-        </div>
-
-        <div class="footer-bottom">
-          <p>© 2026 Wrytole. All rights reserved.</p>
-          <p>Technology • Business • Digital Opportunities</p>
-          <button type="button" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-            Back to top ↑
-          </button>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Interactive Logic & Supabase Integration -->
+    <!-- Interactive Navigation & Confirmation Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            let isSignUp = false;
-
-            // Cookie Modal
+            // Client-Side Cookie Confirmation (No Localhost Required)
             const overlay = document.getElementById('cookieOverlay');
             const acceptBtn = document.getElementById('acceptCookiesBtn');
+
             if (localStorage.getItem('wrytole_access_confirmed') === 'true') {
                 overlay.classList.add('accepted');
             }
+
             acceptBtn.addEventListener('click', function() {
                 localStorage.setItem('wrytole_access_confirmed', 'true');
                 overlay.classList.add('accepted');
             });
 
-            // Mobile Menu
+            // Mobile Menu Toggle Logic
             const menuToggleBtn = document.getElementById('menuToggleBtn');
             const mobileMenu = document.getElementById('mobileMenu');
-            menuToggleBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+            const mobileLinks = document.querySelectorAll('.mobile-link');
 
-            // Auth & APK Modals
-            const authModal = document.getElementById('authModal');
-            const apkModal = document.getElementById('apkModal');
-            const openAuthBtnNav = document.getElementById('openAuthBtnNav');
-            const openAuthBtnMobile = document.getElementById('openAuthBtnMobile');
-            const closeAuthModal = document.getElementById('closeAuthModal');
-            const openApkBtnNav = document.getElementById('openApkBtnNav');
-            const openApkBtnMobile = document.getElementById('openApkBtnMobile');
-            const closeApkModal = document.getElementById('closeApkModal');
-            const toggleAuthMode = document.getElementById('toggleAuthMode');
-            const authTitle = document.getElementById('authTitle');
-            const authSubmitBtn = document.getElementById('authSubmitBtn');
-            const authForm = document.getElementById('authForm');
-
-            openAuthBtnNav.addEventListener('click', (e) => { e.preventDefault(); authModal.classList.add('open'); });
-            openAuthBtnMobile.addEventListener('click', (e) => { e.preventDefault(); authModal.classList.add('open'); });
-            closeAuthModal.addEventListener('click', () => authModal.classList.remove('open'));
-
-            openApkBtnNav.addEventListener('click', (e) => { e.preventDefault(); apkModal.classList.add('open'); });
-            openApkBtnMobile.addEventListener('click', (e) => { e.preventDefault(); apkModal.classList.add('open'); });
-            closeApkModal.addEventListener('click', () => apkModal.classList.remove('open'));
-
-            toggleAuthMode.addEventListener('click', (e) => {
-                e.preventDefault();
-                isSignUp = !isSignUp;
-                authTitle.textContent = isSignUp ? 'Create a Wrytole Account' : 'Sign In to Wrytole';
-                authSubmitBtn.textContent = isSignUp ? 'Sign Up' : 'Sign In';
-                toggleAuthMode.textContent = isSignUp ? 'Already have an account? Sign In' : 'Need an account? Sign Up';
+            menuToggleBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('open');
             });
 
-            // Supabase Sign Up / Sign In
-            authForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const email = document.getElementById('authEmail').value;
-                const password = document.getElementById('authPassword').value;
-
-                if (!window.supabase) {
-                    alert('Supabase client is initializing...');
-                    return;
-                }
-
-                if (isSignUp) {
-                    const { data, error } = await window.supabase.auth.signUp({ email, password });
-                    if (error) alert(error.message);
-                    else {
-                        alert('Registration successful! Check your email to confirm registration.');
-                        authModal.classList.remove('open');
-                    }
-                } else {
-                    const { data, error } = await window.supabase.auth.signInWithPassword({ email, password });
-                    if (error) alert(error.message);
-                    else {
-                        alert('Logged in successfully!');
-                        authModal.classList.remove('open');
-                        checkSession();
-                    }
-                }
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('open');
+                });
             });
-
-            async function checkSession() {
-                if (!window.supabase) return;
-                const { data: { session } } = await window.supabase.auth.getSession();
-                if (session) {
-                    openAuthBtnNav.textContent = 'Sign Out (' + session.user.email.split('@')[0] + ')';
-                    openAuthBtnNav.onclick = async (e) => {
-                        e.preventDefault();
-                        await window.supabase.auth.signOut();
-                        window.location.reload();
-                    };
-                }
-            }
-
-            // Realtime Push Listener
-            document.getElementById('enablePushNotificationsBtn').addEventListener('click', () => {
-                if ('Notification' in window) {
-                    Notification.requestPermission().then(permission => {
-                        if (permission === 'granted') {
-                            showToast('Notifications Enabled', 'You will receive updates directly from Supabase.');
-                            subscribeRealtime();
-                        }
-                    });
-                }
-            });
-
-            function subscribeRealtime() {
-                if (!window.supabase) return;
-                window.supabase
-                    .channel('public:updates')
-                    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'site_updates' }, payload => {
-                        showToast('New Update Published!', payload.new.title || 'Check the website for fresh updates.');
-                        if (Notification.permission === 'granted') {
-                            new Notification('Wrytole Update', { body: payload.new.title });
-                        }
-                    })
-                    .subscribe();
-            }
-
-            function showToast(title, message) {
-                const toast = document.getElementById('toast');
-                document.getElementById('toast-title').textContent = title;
-                document.getElementById('toast-body').textContent = message;
-                toast.classList.add('active');
-                setTimeout(() => toast.classList.remove('active'), 5000);
-            }
-
-            setTimeout(checkSession, 600);
         });
     </script>
 </body>
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Wry<span>tole</span></a>
+        <p>Discover. Learn. Connect.</p>
+        <p class="footer-description">
+          A modern technology platform bringing useful tech information, guides,
+          trending devices, deals, and business opportunities together.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="guides.html">Guides</a>
+        <a href="deals.html">Deals</a>
+    
+      </div>
+
+      <div class="footer-column">
+        <h3>Business</h3>
+        <a href="advertising.html">Advertise With Us</a>
+        <a href="advertising.html">Advertising Packages</a>
+        <a href="donate.html">Donate &amp; Support</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="cookies.html">Cookie Policy</a>
+      </div>
+
+      <div class="footer-column footer-connect">
+        <h3>Connect</h3>
+        <a href="https://wa.me/256709539676" aria-label="WhatsApp">WhatsApp</a>
+        <a href="https://t.me/tecub1">Telegram</a>
+        <a href="https://www.instagram.com/meddisonofficial?igsi=eDc5djh6bGQ4cXZ0" aria-label="Instagram">Instagram</a>
+        <a href="Wrytole3@gmail.com">Email Us</a>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <strong>Disclaimer:</strong>
+      Product information, prices, availability, and third-party offers may
+      change. Please verify details with the relevant provider before making
+      a purchase or payment.
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Wrytole. All rights reserved.</p>
+      <p>Technology • Business • Digital Opportunities</p>
+      <button type="button" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        Back to top ↑
+      </button>
+    </div>
+  </div>
+</footer>
 
 <style>
 .site-footer{
